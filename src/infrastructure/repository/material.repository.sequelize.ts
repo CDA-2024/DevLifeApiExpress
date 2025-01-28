@@ -13,10 +13,54 @@ export class MaterialSequelizeRepository implements MaterialRepository {
           material.name,
           material.type,
           material.description,
-          material.image_url
+          material.image_url,
+          material.createdAt,
+          material.updatedAt,
+          material.isdeleted
         )
     );
   }
 
-  async save(material: Material): Promise<void> {}
+  async findById(id: string): Promise<Material | null> {
+    const materials = await MaterialModel.findByPk(id);
+    if (!materials) return null;
+    return new Material(
+      materials.id,
+      materials.id_material_skill,
+      materials.name,
+      materials.type,
+      materials.description,
+      materials.image_url,
+      materials.createdAt,
+      materials.updatedAt,
+      materials.isdeleted
+    );
+  }
+
+  async save(entity: Material): Promise<Material> {
+    const material = await MaterialModel.create({
+      id: 0,
+      id_material_skill: entity.idMaterialSkill,
+      name: entity.name,
+      type: entity.type,
+      description: entity.description,
+      image_url: entity.imageUrl,
+      isdeleted: false,
+    });
+    return new Material(
+      material.id,
+      material.id_material_skill,
+      material.name,
+      material.type,
+      material.description,
+      material.image_url,
+      material.createdAt,
+      material.updatedAt,
+      material.isdeleted
+    );
+  }
+
+  async delete(id: string): Promise<void> {
+    await MaterialModel.destroy({ where: { id } });
+  }
 }

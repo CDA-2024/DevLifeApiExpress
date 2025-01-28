@@ -1,6 +1,5 @@
 import { Material } from "../entities/material.entity";
+import { Repository } from "./repository.repository.interface";
 
-export interface MaterialRepository {
-  findAll(): Promise<Material[]>;
-  save(material: Material): Promise<void>;
+export interface MaterialRepository extends Repository<Material> {
 }
