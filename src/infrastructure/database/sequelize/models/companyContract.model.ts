@@ -32,7 +32,7 @@ CompanyContractModel.init(
     is_accepted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false,
+      defaultValue: true,
     },
     is_completed: {
       type: DataTypes.BOOLEAN,
