@@ -2,7 +2,7 @@ import { User } from "../../core/entities/user.entity";
 import { UserRepository } from "../../core/interfaces/user.repository.interface";
 import { UserModel } from "../database/mongoose/schemas/user.schema";
 
-export class UserMongooseAdapter implements UserRepository {
+export class UserMongooseRepository implements UserRepository {
   async findAll(): Promise<User[]> {
     const users = await UserModel.find();
     return users.map(

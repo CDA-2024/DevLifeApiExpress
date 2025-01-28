@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { UserMongooseAdapter } from "../../infrastructure/adapters/user.repository.mongoose";
+import { UserMongooseRepository } from "../../infrastructure/repository/user.repository.mongoose";
 import { GetUsersUseCase } from "../../core/use-cases/user/get-user.use-case";
 
-const userRepository = new UserMongooseAdapter();
+const userRepository = new UserMongooseRepository();
 const getUsersUseCase = new GetUsersUseCase(userRepository);
 
 export const getUsersController = async (req: Request, res: Response) => {
