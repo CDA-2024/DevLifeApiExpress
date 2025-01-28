@@ -1,10 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const connectToMongoDB = async () => {
+  const mongoUri = process.env.MONGO_URI || "";
+
   try {
-    await mongoose.connect('//TODO: Add connection to mongoDBAtlas');
-    console.log('MongoDB connected');
+    await mongoose.connect(mongoUri);
+    console.log("MongoDB connected");
   } catch (error) {
-    console.error('MongoDB connection error:', error);
+    console.error("MongoDB connection error:", error);
   }
 };
