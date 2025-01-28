@@ -6,29 +6,22 @@ import {
   Model,
 } from "sequelize";
 import { sequelize } from "../config/db.config";
-class MaterialModel extends Model<
-  InferAttributes<MaterialModel>,
-  InferCreationAttributes<MaterialModel>
+
+class MaterialSkillModel extends Model<
+  InferAttributes<MaterialSkillModel>,
+  InferCreationAttributes<MaterialSkillModel>
 > {
   declare id: number;
-  declare id_material_skill: number;
   declare name: string;
-  declare type: string;
-  declare description: string;
-  declare image_url: string;
   declare createdAt: CreationOptional<Date>;
   declare updatedAt: CreationOptional<Date>;
   declare isdeleted: boolean;
 }
 
-MaterialModel.init(
+MaterialSkillModel.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    id_material_skill: { type: DataTypes.INTEGER, allowNull: false },
     name: { type: DataTypes.STRING, allowNull: false },
-    type: { type: DataTypes.STRING, allowNull: false },
-    description: { type: DataTypes.STRING, allowNull: false },
-    image_url: { type: DataTypes.STRING, allowNull: false },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -45,7 +38,7 @@ MaterialModel.init(
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "materials" }
+  { sequelize, tableName: "material_skill", timestamps: true }
 );
 
-export { MaterialModel };
+export { MaterialSkillModel };
