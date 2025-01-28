@@ -1,5 +1,5 @@
 import { Material } from "../../entities/material.entity";
-import { MaterialRepository } from "../../interfaces/material.repository";
+import { MaterialRepository } from "../../interfaces/material.repository.interface";
 
 export class GetMaterialUseCase {
   constructor(private materialRepository: MaterialRepository) {}
