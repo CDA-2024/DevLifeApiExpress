@@ -1,5 +1,3 @@
-// src/infrastructure/adapters/user-mongoose.adapter.ts
-
 import { User } from "../../core/entities/user.entity";
 import { UserRepository } from "../../core/interfaces/user.repository.interface";
 import { UserModel } from "../database/mongoose/schemas/user.schema";
