@@ -1,6 +1,6 @@
 import { Contract } from "../../core/entities/contract.entity";
 import { ContractRepository } from "../../core/interfaces/contract.repository.interface";
-import { ContractModel } from "../database/sequelize/models/contract.model";
+import { ContractModel } from "../database/sequelize/associations/contract.associations";
 
 export class ContractSequelizeRepository implements ContractRepository {
   async findAll(): Promise<Contract[]> {

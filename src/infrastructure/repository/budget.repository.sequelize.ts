@@ -1,5 +1,5 @@
 import { Budget } from "../../core/entities/budget.entity";
-import { BudgetModel } from "../database/sequelize/models/budget.model";
+import { BudgetModel } from "../database/sequelize/associations/company.associations";
 import { BudgetRepository } from "../../core/interfaces/budget.repository.interface";
 
 export class BudgetSequelizeRepository implements BudgetRepository {
