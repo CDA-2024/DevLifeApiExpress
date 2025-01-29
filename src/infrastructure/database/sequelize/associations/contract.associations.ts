@@ -1,6 +1,7 @@
 import { ContractModel } from "../models/contract.model";
 import { CompanyContractModel } from "../models/companyContract.model";
 import { CompanyModel } from "../models/company.model";
+import { EmployeeCompagnyModel } from "../models/employeeCompagny.model";
 
 CompanyContractModel.belongsTo(ContractModel, {
   foreignKey: "id_contract",
@@ -11,7 +12,9 @@ ContractModel.hasMany(CompanyContractModel, {
   as: "companyContract",
 });
 
-//TODO relation ...
+CompanyContractModel.belongsToMany(EmployeeCompagnyModel, {
+  through: "contractCm_employeeCm",
+});
 
 CompanyContractModel.belongsTo(CompanyModel, {
   foreignKey: "id_company",

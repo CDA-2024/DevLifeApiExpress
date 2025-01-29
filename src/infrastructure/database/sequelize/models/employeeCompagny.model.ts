@@ -7,9 +7,9 @@ import {
 } from "sequelize";
 import { sequelize } from "../config/db.config";
 
-class CompagnyEmployeeModel extends Model<
-  InferAttributes<CompagnyEmployeeModel>,
-  InferCreationAttributes<CompagnyEmployeeModel>
+class EmployeeCompagnyModel extends Model<
+  InferAttributes<EmployeeCompagnyModel>,
+  InferCreationAttributes<EmployeeCompagnyModel>
 > {
   declare id: number;
   declare id_employee: number;
@@ -22,7 +22,7 @@ class CompagnyEmployeeModel extends Model<
 
 }
 
-CompagnyEmployeeModel.init(
+EmployeeCompagnyModel.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     id_employee: { type: DataTypes.INTEGER, allowNull: false },
@@ -52,4 +52,4 @@ CompagnyEmployeeModel.init(
   { sequelize, tableName: "employee_skill", timestamps: true }
 );
 
-export { CompagnyEmployeeModel };
+export { EmployeeCompagnyModel };
