@@ -3,6 +3,6 @@ import { getMaterialController } from "../controllers/material.controller";
 
 const router = Router();
 
-router.get("/materials", getMaterialController);
+router.get("/", getMaterialController);
 
 export default router;
