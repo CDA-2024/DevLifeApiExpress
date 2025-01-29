@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: devlife_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: devlife_mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306"
+    volumes:
+      - /docker/mysql:/var/lib/mysql
+      #- /docker/mysql/init-mysql.sql:/docker-entrypoint-initdb.d/init-mysql.sql
+
+  mongodb:
+    image: mongo:latest
+    container_name: devlife_mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_DATABASE=devlife_mongo
+    volumes:
+      - /docker/mongodb:/data/db
+      # - ./docker/mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js
+
+volumes:
+  mysql-data:
+  mongo-data:
