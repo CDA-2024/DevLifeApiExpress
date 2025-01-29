@@ -7,5 +7,5 @@ const getMaterialUseCase = new GetMaterialUseCase(materialRepository);
 
 export const getMaterialController = async (req: Request, res: Response) => {
   const materials = await getMaterialUseCase.execute();
-  res.json(materials);
+  res.json('coucou');
 };
