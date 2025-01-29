@@ -1,4 +1,3 @@
-
 export class CompagnyEmployee {
   constructor(
     public id: number,
