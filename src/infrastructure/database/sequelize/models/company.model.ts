@@ -7,7 +7,7 @@ import {
 } from "sequelize";
 import { sequelize } from "../config/db.config";
 
-export class CompanyModel extends Model<
+class CompanyModel extends Model<
   InferAttributes<CompanyModel>,
   InferCreationAttributes<CompanyModel>
 > {
@@ -42,3 +42,5 @@ CompanyModel.init(
     timestamps: true,
   }
 );
+
+export { CompanyModel };

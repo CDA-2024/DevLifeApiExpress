@@ -45,7 +45,7 @@ MaterialModel.init(
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "materials", underscored: true, timestamps: true }
+  { sequelize, tableName: "material", underscored: true, timestamps: true }
 );
 
 export { MaterialModel };
