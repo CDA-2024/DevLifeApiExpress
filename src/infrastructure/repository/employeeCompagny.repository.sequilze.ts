@@ -1,12 +1,12 @@
 import { CompagnyEmployee } from "../../core/entities/compagnyEmployee.entity";
 import { EmployeeCompagnyRepository } from "../../core/interfaces/employeCompagny.repository.interface";
-import { CompagnyEmployeeModel } from "../database/sequelize/models/compagnyEmployee.model";
+import { EmployeeCompagnyModel } from "../database/sequelize/models/employeeCompagny.model";
 
 export class EmployeeCompagnySequilizeRepository
   implements EmployeeCompagnyRepository
 {
   async findAll(): Promise<CompagnyEmployee[]> {
-    const compagnyEmployees = await CompagnyEmployeeModel.findAll();
+    const compagnyEmployees = await EmployeeCompagnyModel.findAll();
     return compagnyEmployees.map(
       (compagnyEmployee) =>
         new CompagnyEmployee(
@@ -23,7 +23,7 @@ export class EmployeeCompagnySequilizeRepository
   }
 
   async findById(id: string): Promise<CompagnyEmployee | null> {
-    const compagnyEmployee = await CompagnyEmployeeModel.findByPk(id);
+    const compagnyEmployee = await EmployeeCompagnyModel.findByPk(id);
 
     if (!compagnyEmployee) {
       return null;
@@ -42,7 +42,7 @@ export class EmployeeCompagnySequilizeRepository
   }
 
   async save(entity: CompagnyEmployee): Promise<CompagnyEmployee> {
-    const [compagnyEmployee, _created] = await CompagnyEmployeeModel.upsert({
+    const [compagnyEmployee, _created] = await EmployeeCompagnyModel.upsert({
       id: entity.id,
       id_employee: entity.id_employee,
       id_compagny: entity.id_compagny,
@@ -64,7 +64,7 @@ export class EmployeeCompagnySequilizeRepository
   }
 
   async delete(id: string): Promise<void> {
-    const result = await CompagnyEmployeeModel.destroy({
+    const result = await EmployeeCompagnyModel.destroy({
       where: { id },
     });
 
