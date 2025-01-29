@@ -10,3 +10,5 @@ MaterialSkillModel.hasMany(MaterialModel, {
   foreignKey: "id_material_skill",
   as: "material",
 });
+
+export { MaterialModel, MaterialSkillModel };
