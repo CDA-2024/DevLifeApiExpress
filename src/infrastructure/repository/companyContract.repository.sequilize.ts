@@ -1,7 +1,7 @@
 import { CompanyContract } from "../../core/entities/companyContract.entity";
 import { Contract } from "../../core/entities/contract.entity";
 import { CompanyContractRepository } from "../../core/interfaces/companyContract.repository.interface";
-import { CompanyContractModel } from "../database/sequelize/models/companyContract.model";
+import { CompanyContractModel } from "../database/sequelize/associations/company.associations";
 
 export class CompanyContractSequelizeRepository
   implements CompanyContractRepository
