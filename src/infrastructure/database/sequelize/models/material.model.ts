@@ -25,10 +25,10 @@ MaterialModel.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     id_material_skill: { type: DataTypes.INTEGER, allowNull: false },
-    name: { type: DataTypes.STRING, allowNull: false },
-    type: { type: DataTypes.STRING, allowNull: false },
-    description: { type: DataTypes.STRING, allowNull: false },
-    image_url: { type: DataTypes.STRING, allowNull: false },
+    name: { type: DataTypes.STRING(100), allowNull: false , validate: { len: [3, 100] } },
+    type: { type: DataTypes.STRING(100), allowNull: false },
+    description: { type: DataTypes.STRING(255), allowNull: false },
+    image_url: { type: DataTypes.STRING(255), allowNull: false },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -45,7 +45,7 @@ MaterialModel.init(
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "materials" }
+  { sequelize, tableName: "materials", underscored: true, timestamps: true }
 );
 
 export { MaterialModel };

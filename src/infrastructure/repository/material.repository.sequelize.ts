@@ -37,27 +37,19 @@ export class MaterialSequelizeRepository implements MaterialRepository {
     );
   }
 
-  async save(entity: Material): Promise<Material> {
-    const material = await MaterialModel.create({
-      id: 0,
-      id_material_skill: entity.idMaterialSkill,
-      name: entity.name,
-      type: entity.type,
-      description: entity.description,
-      image_url: entity.imageUrl,
-      isdeleted: false,
+  async save(material: Material): Promise<Material> {
+    await MaterialModel.upsert({
+      id: material.id,
+      id_material_skill: material.idMaterialSkill,
+      name: material.name,
+      type: material.type,
+      description: material.description,
+      image_url: material.imageUrl,
+      createdAt: material.createdAt,
+      updatedAt: material.updatedAt,
+      isdeleted: material.isDeleted,
     });
-    return new Material(
-      material.id,
-      material.id_material_skill,
-      material.name,
-      material.type,
-      material.description,
-      material.image_url,
-      material.createdAt,
-      material.updatedAt,
-      material.isdeleted
-    );
+    return material;
   }
 
   async delete(id: string): Promise<void> {
