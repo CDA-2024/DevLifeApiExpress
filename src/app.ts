@@ -1,7 +1,7 @@
 import express from "express";
-import routes from "./src/application/routes";
-import { connectToMongoDB } from "./src/infrastructure/database/mongoose/config/db.config";
-import { sequelize } from "./src/infrastructure/database/sequelize/config/db.config";
+import routes from "./application/routes";
+import { connectToMongoDB } from "./infrastructure/database/mongoose/config/db.config";
+import { sequelize } from "./infrastructure/database/sequelize/config/db.config";
 
 const app = express();
 
