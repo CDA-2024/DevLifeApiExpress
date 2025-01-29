@@ -16,14 +16,4 @@ CompanyContractModel.belongsToMany(EmployeeCompagnyModel, {
   through: "contractCm_employeeCm",
 });
 
-CompanyContractModel.belongsTo(CompanyModel, {
-  foreignKey: "id_company",
-  as: "company",
-});
-
-CompanyModel.hasMany(CompanyContractModel, {
-  foreignKey: "id_company",
-  as: "companyContract",
-});
-
 export { CompanyContractModel, ContractModel, CompanyModel };

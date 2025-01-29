@@ -1,5 +1,5 @@
 import { Company } from "../../core/entities/company.entity";
-import { CompanyModel } from "../database/sequelize/models/company.model";
+import { CompanyModel } from "../database/sequelize/associations/company.associations";
 import { CompanyRepository } from "../../core/interfaces/company.repository.interface";
 
 export class CompanySequelizeRepository implements CompanyRepository {
