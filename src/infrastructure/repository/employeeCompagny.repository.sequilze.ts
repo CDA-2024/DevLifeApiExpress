@@ -1,15 +1,15 @@
-import { CompagnyEmployee } from "../../core/entities/compagnyEmployee.entity";
+import { EmployeeCompagny } from "../../core/entities/employeeCompagny.entity";
 import { EmployeeCompagnyRepository } from "../../core/interfaces/employeCompagny.repository.interface";
 import { EmployeeCompagnyModel } from "../database/sequelize/models/employeeCompagny.model";
 
 export class EmployeeCompagnySequilizeRepository
   implements EmployeeCompagnyRepository
 {
-  async findAll(): Promise<CompagnyEmployee[]> {
+  async findAll(): Promise<EmployeeCompagny[]> {
     const compagnyEmployees = await EmployeeCompagnyModel.findAll();
     return compagnyEmployees.map(
       (compagnyEmployee) =>
-        new CompagnyEmployee(
+        new EmployeeCompagny(
           compagnyEmployee.id,
           compagnyEmployee.id_employee,
           compagnyEmployee.id_compagny,
@@ -22,14 +22,14 @@ export class EmployeeCompagnySequilizeRepository
     );
   }
 
-  async findById(id: string): Promise<CompagnyEmployee | null> {
+  async findById(id: string): Promise<EmployeeCompagny | null> {
     const compagnyEmployee = await EmployeeCompagnyModel.findByPk(id);
 
     if (!compagnyEmployee) {
       return null;
     }
 
-    return new CompagnyEmployee(
+    return new EmployeeCompagny(
       compagnyEmployee.id,
       compagnyEmployee.id_employee,
       compagnyEmployee.id_compagny,
@@ -41,7 +41,7 @@ export class EmployeeCompagnySequilizeRepository
     );
   }
 
-  async save(entity: CompagnyEmployee): Promise<CompagnyEmployee> {
+  async save(entity: EmployeeCompagny): Promise<EmployeeCompagny> {
     const [compagnyEmployee, _created] = await EmployeeCompagnyModel.upsert({
       id: entity.id,
       id_employee: entity.id_employee,
@@ -51,7 +51,7 @@ export class EmployeeCompagnySequilizeRepository
       isdeleted: entity.isdeleted,
     });
 
-    return new CompagnyEmployee(
+    return new EmployeeCompagny(
       compagnyEmployee.id,
       compagnyEmployee.id_employee,
       compagnyEmployee.id_compagny,

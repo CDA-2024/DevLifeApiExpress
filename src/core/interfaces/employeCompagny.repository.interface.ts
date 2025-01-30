@@ -1,4 +1,5 @@
-import { CompagnyEmployee } from "../entities/compagnyEmployee.entity";
+import { EmployeeCompagny } from "../entities/employeeCompagny.entity";
 import { Repository } from "./repository.repository.interface";
 
-export interface EmployeeCompagnyRepository extends Repository<CompagnyEmployee> {}
+export interface EmployeeCompagnyRepository
+  extends Repository<EmployeeCompagny> {}
