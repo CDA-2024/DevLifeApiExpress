@@ -1,7 +1,25 @@
+import { Repository } from "../interfaces/repository.repository.interface";
+
 export abstract class BaseUseCase<T> {
-  abstract create(entity: T): Promise<T>;
-  abstract read(id: string): Promise<T>;
-  abstract update(entity: T): Promise<T>;
-  abstract delete(id: string): Promise<void>;
-  abstract list(): Promise<T[]>;
+  protected repository: Repository<T>;
+
+  constructor(repository: Repository<T>) {
+    this.repository = repository;
+  }
+
+  public async getAll(): Promise<T[]> {
+    return await this.repository.findAll();
+  }
+
+  public async getById(id: string): Promise<T | null> {
+    return await this.repository.findById(id);
+  }
+
+  public async create(data: Partial<T>): Promise<T> {
+    return await this.repository.save(data as any);
+  }
+
+  public async delete(id: string): Promise<void> {
+    return await this.repository.delete(id);
+  }
 }

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UserMongooseRepository } from "../../infrastructure/repository/user.repository.mongoose";
-import { GetUsersUseCase } from "../../core/use-cases/user/get-user.use-case";
+import { GetUsersUseCase } from "../../core/use-cases/user.use-case";
 
 const userRepository = new UserMongooseRepository();
 const getUsersUseCase = new GetUsersUseCase(userRepository);
