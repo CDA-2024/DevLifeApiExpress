@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { EmployeesCompagnyUseCase } from "../../core/use-cases/employeesCompagny.use-case";
+import { EmployeeUseCase } from "../../core/use-cases/employee.use-case";
 
-const EmployeeCompagnyUseCase = new EmployeesCompagnyUseCase();
+const EmployeeCompagnyUseCase = new EmployeeUseCase();
 
-export const getEmployeesCompagnyController = async (
+export const getEmployeesController = async (
   req: Request,
   res: Response
 ) => {
@@ -11,7 +11,7 @@ export const getEmployeesCompagnyController = async (
   res.json(materials);
 };
 
-export const getEmployeeCompagnyByIdController = async (
+export const getEmployeeByIdController = async (
   req: Request,
   res: Response
 ) => {
@@ -19,7 +19,7 @@ export const getEmployeeCompagnyByIdController = async (
   res.json(material);
 };
 
-export const saveEmployeesCompagnyController = async (
+export const saveEmployeeController = async (
   req: Request,
   res: Response
 ) => {
@@ -27,7 +27,7 @@ export const saveEmployeesCompagnyController = async (
   res.json(material);
 };
 
-export const deleteEmployeesCompagnyController = async (
+export const deleteEmployeeController = async (
   req: Request,
   res: Response
 ) => {

@@ -16,7 +16,7 @@ EmployeeSkillModel.hasMany(EmployeeModel, {
 
 EmployeeCompagnyModel.belongsTo(EmployeeModel, {
   foreignKey: "id_employee",
-  as: "employee",
+  as: "employeeDetail",
 });
 
 EmployeeModel.hasMany(EmployeeCompagnyModel, {
@@ -30,7 +30,7 @@ EmployeeCompagnyModel.belongsToMany(CompanyContractModel, {
 
 EmployeeCompagnyModel.belongsTo(CompanyModel, {
   foreignKey: "id_company",
-  as: "employee",
+  as: "companyDetail",
 });
 
 EmployeeCompagnyModel.hasMany(MaterialCmModel, {
@@ -40,7 +40,7 @@ EmployeeCompagnyModel.hasMany(MaterialCmModel, {
 
 CompanyModel.hasMany(EmployeeCompagnyModel, {
   foreignKey: "id_company",
-  as: "company",
+  as: "contractCompany",
 });
 
 export { EmployeeModel, EmployeeSkillModel, CompanyModel };

@@ -1,7 +1,8 @@
 import express from "express";
 import routes from "./application/routes";
 import { connectToMongoDB } from "./infrastructure/database/mongoose/config/db.config";
-import { sequelize } from "./infrastructure/database/sequelize/config/db.config";
+import { syncDatabase } from "./infrastructure/database/sequelize/config/db.init";
+
 
 const app = express();
 
@@ -11,8 +12,6 @@ app.use("/api", routes);
 // TODO: add CORS
 
 connectToMongoDB();
-sequelize.sync({
-  alter: true,
-});
+syncDatabase();
 
 export default app;

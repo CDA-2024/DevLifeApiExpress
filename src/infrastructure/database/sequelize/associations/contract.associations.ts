@@ -5,7 +5,7 @@ import { EmployeeCompagnyModel } from "../models/employeeCompagny.model";
 
 CompanyContractModel.belongsTo(ContractModel, {
   foreignKey: "id_contract",
-  as: "contract",
+  as: "contractDetail",
 });
 ContractModel.hasMany(CompanyContractModel, {
   foreignKey: "id_contract",

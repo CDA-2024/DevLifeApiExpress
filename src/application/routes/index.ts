@@ -6,6 +6,7 @@ import materialSkillRoutes from "./materialSkill.routes";
 import companyRoutes from "./company.routes";
 import budgetRoutes from "./budget.routes";
 import materialCmRoutes from "./materialCm.routes";
+import employeeRoutes from "./employee.routes"
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.use("/budget", budgetRoutes);
 router.use("/materialCm", materialCmRoutes);
 
 router.use("/employeeCompagny", employeeCompagnyRoutes);
+router.use("/employee", employeeRoutes);
 
 export default router;

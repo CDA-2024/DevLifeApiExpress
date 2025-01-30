@@ -1,9 +1,8 @@
-import e from "express";
 import { MaterialCmModel } from "../models/materialCm.model";
 
 MaterialCmModel.hasMany(MaterialCmModel, {
   foreignKey: "id_material",
-  as: "materials",
+  as: "materialDetails",
 });
 
 MaterialCmModel.belongsToMany(MaterialCmModel, {
@@ -12,7 +11,7 @@ MaterialCmModel.belongsToMany(MaterialCmModel, {
 
 MaterialCmModel.belongsTo(MaterialCmModel, {
   foreignKey: "id_c_employee",
-  as: "company_employee",
+  as: "companyEmployeeDetail",
 });
 
 export { MaterialCmModel };

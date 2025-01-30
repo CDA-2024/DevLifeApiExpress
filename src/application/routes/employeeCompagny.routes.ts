@@ -1,13 +1,17 @@
 import { Router } from "express";
-import { deleteEmlployeesCompagnyController, getEmlployeesCompagnyByIdController, getEmlployeesCompagnyController, saveEmlployeesCompagnyController } from "../controllers/employeeCompagny.controller";
+import {
+  deleteEmployeesCompagnyController,
+  getEmployeeCompagnyByIdController,
+  getEmployeesCompagnyController,
+  saveEmployeesCompagnyController,
+} from "../controllers/employeeCompagny.controller";
 
 const router = Router();
 
-router.get("/", getEmlployeesCompagnyController);
-router.get("/:id", getEmlployeesCompagnyByIdController);
-router.post("/", saveEmlployeesCompagnyController);
-router.put("/:id", saveEmlployeesCompagnyController);
-router.delete("/:id", deleteEmlployeesCompagnyController);
-
+router.get("/", getEmployeesCompagnyController);
+router.get("/:id", getEmployeeCompagnyByIdController);
+router.post("/", saveEmployeesCompagnyController);
+router.put("/:id", saveEmployeesCompagnyController);
+router.delete("/:id", deleteEmployeesCompagnyController);
 
 export default router;
