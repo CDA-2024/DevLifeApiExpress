@@ -1,17 +1,17 @@
 import { Router } from "express";
 import {
-  createMaterialSkillController,
   deleteMaterialSkillController,
   getMaterialSkillByIdController,
   getMaterialSkillController,
+  saveMaterialSkillController,
 } from "../controllers/materialSkill.controller";
 
 const router = Router();
 
-router.get("/materialSkill", getMaterialSkillController);
-router.get("/materialSkill/:id", getMaterialSkillByIdController);
-router.post("/materialSkill", createMaterialSkillController);
-router.put("/materialSkill/:id", createMaterialSkillController);
-router.delete("/materialSkill/:id", deleteMaterialSkillController);
+router.get("/", getMaterialSkillController);
+router.get("/:id", getMaterialSkillByIdController);
+router.post("/", saveMaterialSkillController);
+router.put("/:id", saveMaterialSkillController);
+router.delete("/:id", deleteMaterialSkillController);
 
 export default router;
