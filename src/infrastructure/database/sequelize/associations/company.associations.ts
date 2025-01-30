@@ -12,6 +12,10 @@ CompanyModel.hasMany(CompanyContractModel, {
   as: "companyContract",
 });
 
+CompanyModel.belongsToMany(CompanyModel, {
+  through: "company_material_cm",
+});
+
 BudgetModel.belongsTo(CompanyModel, {
   foreignKey: "id_company",
   as: "budgetCompany",
