@@ -9,6 +9,7 @@ import materialCmRoutes from "./materialCm.routes";
 import contractRoutes from "./contract.routes";
 import companyContractRoutes from "./companyContract.routes";
 import employeeRoutes from "./employee.routes"
+import employeeSkillRoute from "./employeeSkill.routes";
 
 const router = Router();
 
@@ -18,7 +19,7 @@ router.use("/materialSkill", materialSkillRoutes);
 router.use("/company", companyRoutes);
 router.use("/budget", budgetRoutes);
 router.use("/materialCm", materialCmRoutes);
-
+router.use("/employeeSkill", employeeSkillRoute);
 router.use("/employeeCompagny", employeeCompagnyRoutes);
 router.use("/contracts", contractRoutes);
 router.use("/companyContracts", companyContractRoutes);

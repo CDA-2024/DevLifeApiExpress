@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { EmployeesCompagnyUseCase } from "../../core/use-cases/employeesCompagny.use-case";
+import { EmployeeCompagnyUseCase } from "../../core/use-cases/employeesCompagny.use-case";
 
-const EmployeeCompagnyUseCase = new EmployeesCompagnyUseCase();
+const employeeCompagnyUseCase = new EmployeeCompagnyUseCase();
 
 export const getEmployeesCompagnyController = async (
   req: Request,
   res: Response
 ) => {
-  const materials = await EmployeeCompagnyUseCase.getAll();
+  const materials = await employeeCompagnyUseCase.getAll();
   res.json(materials);
 };
 
@@ -15,22 +15,22 @@ export const getEmployeeCompagnyByIdController = async (
   req: Request,
   res: Response
 ) => {
-  const material = await EmployeeCompagnyUseCase.getById(req.params.id);
+  const material = await employeeCompagnyUseCase.getById(req.params.id);
   res.json(material);
 };
 
-export const saveEmployeesCompagnyController = async (
+export const saveEmployeeCompagnyController = async (
   req: Request,
   res: Response
 ) => {
-  const material = await EmployeeCompagnyUseCase.save(req.body);
+  const material = await employeeCompagnyUseCase.save(req.body);
   res.json(material);
 };
 
-export const deleteEmployeesCompagnyController = async (
+export const deleteEmployeeCompagnyController = async (
   req: Request,
   res: Response
 ) => {
-  await EmployeeCompagnyUseCase.delete(req.params.id);
+  await employeeCompagnyUseCase.delete(req.params.id);
   res.json();
 };

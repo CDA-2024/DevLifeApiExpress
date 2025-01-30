@@ -1,17 +1,17 @@
 import { Router } from "express";
 import {
-  deleteEmployeesCompagnyController,
+  deleteEmployeeCompagnyController,
   getEmployeeCompagnyByIdController,
   getEmployeesCompagnyController,
-  saveEmployeesCompagnyController,
+  saveEmployeeCompagnyController,
 } from "../controllers/employeeCompagny.controller";
 
 const router = Router();
 
 router.get("/", getEmployeesCompagnyController);
 router.get("/:id", getEmployeeCompagnyByIdController);
-router.post("/", saveEmployeesCompagnyController);
-router.put("/:id", saveEmployeesCompagnyController);
-router.delete("/:id", deleteEmployeesCompagnyController);
+router.post("/", saveEmployeeCompagnyController);
+router.put("/:id", saveEmployeeCompagnyController);
+router.delete("/:id", deleteEmployeeCompagnyController);
 
 export default router;
