@@ -1,9 +1,9 @@
 import { Router } from "express";
 import {
+  createMaterialSkillController,
   deleteMaterialSkillController,
   getMaterialSkillByIdController,
   getMaterialSkillController,
-  saveMaterialSkillController,
 } from "../controllers/materialSkill.controller";
 
 const router = Router();
