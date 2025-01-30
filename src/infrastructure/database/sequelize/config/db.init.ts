@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import logger from "../../../logger/logger";
 import { exec } from "child_process";
+import mysql from "mysql2/promise";
 
 export async function syncDatabase() {
   try {
@@ -32,17 +33,65 @@ async function loadSQLData() {
     return;
   }
 
+  try {
+    const connection = await mysql.createConnection({
+      host: process.env.MYSQL_HOST,
+      port: process.env.MYSQL_PORT
+        ? parseInt(process.env.MYSQL_PORT, 10)
+        : undefined,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DATABASE,
+    });
 
-  const command = `docker exec -i devlife_mysql mysql -u ${process.env.MYSQL_USER} -p${process.env.MYSQL_PASSWORD} ${process.env.MYSQL_DATABASE} < ${sqlFilePath}`;
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      logger.error(`error: ${error.message}`);
+    const [tables]: any[] = await connection.execute("SHOW TABLES");
+
+    if (tables.length === 0) {
+      logger.error("Aucune table trouvée dans la base de données !");
+      await connection.end();
       return;
     }
-    if (stderr) {
-      logger.error(`stderr: ${stderr}`);
+
+    let isDatabaseEmpty = true;
+    for (const table of tables) {
+      const tableName = Object.values(table)[0];
+      const [rows]: [mysql.RowDataPacket[], mysql.FieldPacket[]] =
+        await connection.execute(
+          `SELECT COUNT(*) AS count FROM \`${tableName}\``
+        );
+      if (rows[0].count > 0) {
+        isDatabaseEmpty = false;
+        break;
+      }
+    }
+
+    if (!isDatabaseEmpty) {
+      console.log("Les données existent déjà, l'importation SQL est ignorée.");
+      await connection.end();
       return;
     }
-    logger.info(`stdout: ${stdout}`);
-  });
+
+    await connection.end();
+
+    const command = `mysql -h ${process.env.MYSQL_HOST} -P ${process.env.MYSQL_PORT} -u ${process.env.MYSQL_USER} -p${process.env.MYSQL_PASSWORD} ${process.env.MYSQL_DATABASE} < ${sqlFilePath}`;
+
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        logger.error(
+          "Erreur lors du chargement du fichier SQL :",
+          error.message
+        );
+        return;
+      }
+      if (stderr) {
+        logger.error("Avertissement :", stderr);
+      }
+      console.log("Base de données initialisée avec succès !");
+    });
+  } catch (error) {
+    logger.error(
+      "Erreur lors de la vérification de la base de données :",
+      error
+    );
+  }
 }
