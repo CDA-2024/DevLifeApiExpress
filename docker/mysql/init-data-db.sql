@@ -1,5 +1,5 @@
 use devlife_mysql;
-INSERT INTO materials (idMaterialSkill, name, type, description, imageUrl) VALUES
+INSERT INTO material (idMaterialSkill, name, type, description, imageUrl) VALUES
 (1, 'Ordinateur Basique', 'Matériel', 'PC de bureau standard pour tâches courantes', 'https://example.com/pc_basique.jpg'),
 (2, 'Ordinateur Gaming', 'Matériel', 'PC avec carte graphique haut de gamme pour gamers', 'https://example.com/pc_gaming.jpg'),
 (3, 'MacBook Pro', 'Matériel', 'Ordinateur portable puissant pour les développeurs', 'https://example.com/macbook_pro.jpg'),
