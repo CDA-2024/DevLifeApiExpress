@@ -46,12 +46,6 @@ async function loadSQLData() {
 
     const [tables]: any[] = await connection.execute("SHOW TABLES");
 
-    if (tables.length === 0) {
-      logger.error("Aucune table trouvée dans la base de données !");
-      await connection.end();
-      return;
-    }
-
     let isDatabaseEmpty = true;
     for (const table of tables) {
       const tableName = Object.values(table)[0];
@@ -66,7 +60,7 @@ async function loadSQLData() {
     }
 
     if (!isDatabaseEmpty) {
-      console.log("Les données existent déjà, l'importation SQL est ignorée.");
+      logger.info("Les données existent déjà, l'importation SQL est ignorée.");
       await connection.end();
       return;
     }
@@ -83,10 +77,7 @@ async function loadSQLData() {
         );
         return;
       }
-      if (stderr) {
-        logger.error("Avertissement :", stderr);
-      }
-      console.log("Base de données initialisée avec succès !");
+      logger.info("Base de données initialisée avec succès !");
     });
   } catch (error) {
     logger.error(
