@@ -10,7 +10,6 @@ services:
       - "3307:3306"
     volumes:
       - mysql-db:/var/lib/mysql
-      - ./docker/mysql/init-data-db.sql:/docker-entrypoint-initdb.d/init-data-db.sql
 
   mongodb:
     image: mongo:latest

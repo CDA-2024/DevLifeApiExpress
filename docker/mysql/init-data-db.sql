@@ -44,17 +44,30 @@ INSERT INTO material_skill (id, name, created_at, updated_at, is_deleted) VALUES
 (19, 'Travail sur écran ultra-large', NOW(), NOW(), false),
 (20, 'Utilisation écran tactile', NOW(), NOW(), false);
 
-INSERT INTO employee (id_skill, name, salary, created_at, updated_at, is_deleted) VALUES
-(1, 'Jean Dev', 450, NOW(), NOW(), false),
-(2, 'Marie Code', 500, NOW(), NOW(), false),
-(3, 'Alice UI', 480, NOW(), NOW(), false),
-(4, 'Max Design', 470, NOW(), NOW(), false),
-(5, 'Lucas API', 550, NOW(), NOW(), false),
-(6, 'Emma Database', 530, NOW(), NOW(), false),
-(7, 'Julien Cloud', 600, NOW(), NOW(), false),
-(8, 'Sophie CI/CD', 590, NOW(), NOW(), false),
-(9, 'Nathan Cyber', 580, NOW(), NOW(), false),
-(10, 'Chloé Secure', 570, NOW(), NOW(), false);
+
+INSERT INTO employee_skill (id, name, description, created_at, updated_at, is_deleted) VALUES
+(1, 'Développement Fullstack', 'Capacité à coder en front et back-end', NOW(), NOW(), false),
+(2, 'Développement Frontend', 'Maîtrise des technologies UI/UX (React, Vue)', NOW(), NOW(), false),
+(3, 'Développement Backend', 'Gestion des API, bases de données, Node.js', NOW(), NOW(), false),
+(4, 'DevOps & Cloud', 'CI/CD, Docker, Kubernetes, AWS, Azure', NOW(), NOW(), false),
+(5, 'Sécurité Informatique', "Tests d'intrusion, cybersécurité", NOW(), NOW(), false),
+(6, 'Data Science & Big Data', 'Analyse de données, machine learning', NOW(), NOW(), false),
+(7, 'Intelligence Artificielle', 'Développement de modèles IA et NLP', NOW(), NOW(), false),
+(8, 'Gestion de Projet Agile', "Scrum, Kanban, gestion d'équipe", NOW(), NOW(), false),
+(9, 'UI/UX Design', 'Création de maquettes et d’interfaces graphiques', NOW(), NOW(), false),
+(10, 'Administrateur Système & Réseau', 'Maintenance des infrastructures IT', NOW(), NOW(), false);
+
+INSERT INTO employee (id, id_skill, name, salary, created_at, updated_at, is_deleted) VALUES
+(1, 1, 'Jean Dev', 450, NOW(), NOW(), false),
+(2, 2, 'Marie Code', 500, NOW(), NOW(), false),
+(3, 3, 'Alice UI', 480, NOW(), NOW(), false),
+(4, 4, 'Max Design', 470, NOW(), NOW(), false),
+(5, 5, 'Lucas API', 550, NOW(), NOW(), false),
+(6, 6, 'Emma Database', 530, NOW(), NOW(), false),
+(7, 7, 'Julien Cloud', 600, NOW(), NOW(), false),
+(8, 8, 'Sophie CI/CD', 590, NOW(), NOW(), false),
+(9, 9, 'Nathan Cyber', 580, NOW(), NOW(), false),
+(10, 10, 'Chloé Secure', 570, NOW(), NOW(), false);
 
 INSERT INTO contract (id, title, type, image_url, description, reward, difficulty_level, is_deleted, created_at, updated_at) VALUES
 (1,'Développement Site Web', 'Développement Web', 'https://example.com/contract1.jpg', "Création d'un site web responsive avec React et Node.js", 5000, 3, false, NOW(), NOW()),
@@ -68,14 +81,3 @@ INSERT INTO contract (id, title, type, image_url, description, reward, difficult
 (9,"Développement d'IA", 'Intelligence Artificielle', 'https://example.com/contract9.jpg', "Création d'un modèle d'apprentissage automatique pour la reconnaissance d'images", 12000, 5, false, NOW(), NOW()),
 (10,'Chef de Projet Agile', 'Gestion de Projet', 'https://example.com/contract10.jpg', "Supervision d'une équipe de développeurs en méthode agile", 5000, 3, false, NOW(), NOW());
 
-INSERT INTO employee_skill (name, description, created_at, updated_at, is_deleted) VALUES
-( 'Développement Fullstack', 'Capacité à coder en front et back-end', NOW(), NOW(), false),
-( 'Développement Frontend', 'Maîtrise des technologies UI/UX (React, Vue)', NOW(), NOW(), false),
-( 'Développement Backend', 'Gestion des API, bases de données, Node.js', NOW(), NOW(), false),
-( 'DevOps & Cloud', 'CI/CD, Docker, Kubernetes, AWS, Azure', NOW(), NOW(), false),
-( 'Sécurité Informatique', "Tests d'intrusion, cybersécurité", NOW(), NOW(), false),
-( 'Data Science & Big Data', 'Analyse de données, machine learning', NOW(), NOW(), false),
-( 'Intelligence Artificielle', 'Développement de modèles IA et NLP', NOW(), NOW(), false),
-( 'Gestion de Projet Agile', "Scrum, Kanban, gestion d'équipe", NOW(), NOW(), false),
-( 'UI/UX Design', 'Création de maquettes et d’interfaces graphiques', NOW(), NOW(), false),
-( 'Administrateur Système & Réseau', 'Maintenance des infrastructures IT', NOW(), NOW(), false);
