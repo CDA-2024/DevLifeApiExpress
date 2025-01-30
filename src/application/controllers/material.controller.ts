@@ -16,11 +16,6 @@ export const getMaterialByIdController = async (
   res.json(material);
 };
 
-export const createMaterialController = async (req: Request, res: Response) => {
-  const material = await materialUseCase.save(req.body);
-  res.json(material);
-};
-
 export const updateMaterialController = async (req: Request, res: Response) => {
   const material = await materialUseCase.save(req.body);
   res.json(material);
