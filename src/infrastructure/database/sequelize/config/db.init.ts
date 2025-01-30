@@ -73,7 +73,7 @@ async function loadSQLData() {
 
     await connection.end();
 
-    const command = `mysql -h ${process.env.MYSQL_HOST} -P ${process.env.MYSQL_PORT} -u ${process.env.MYSQL_USER} -p${process.env.MYSQL_PASSWORD} ${process.env.MYSQL_DATABASE} < ${sqlFilePath}`;
+    const command = `docker exec -i devlife_mysql mysql -u ${process.env.MYSQL_USER} -p${process.env.MYSQL_PASSWORD} ${process.env.MYSQL_DATABASE} < ${sqlFilePath}`;
 
     exec(command, (error, stdout, stderr) => {
       if (error) {
