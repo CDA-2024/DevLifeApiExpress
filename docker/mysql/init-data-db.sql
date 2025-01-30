@@ -55,7 +55,7 @@ INSERT INTO employee (id_skill, name, salary, createdAt, updatedAt, isdeleted) V
 (9, 'Nathan Cyber', 580, NOW(), NOW(), false),
 (10, 'Chloé Secure', 570, NOW(), NOW(), false);
 
-INSERT INTO contract (id, title, type, imageUrl, description, reward, difficultyLevel, isDeleted, createdAt, updateAt) VALUES
+INSERT INTO contract (id, title, type, imageUrl, description, reward, difficultyLevel, isDeleted, createdAt, updatedAt) VALUES
 (1,'Développement Site Web', 'Développement Web', 'https://example.com/contract1.jpg', "Création d'un site web responsive avec React et Node.js", 5000, 3, false, NOW(), NOW()),
 (2,'Application Mobile', 'Développement Mobile', 'https://example.com/contract2.jpg', "Développement d'une application mobile Android et iOS", 8000, 4, false, NOW(), NOW()),
 (3,'Maintenance Applicative', 'Maintenance', 'https://example.com/contract3.jpg', "Mise à jour et correction des bugs d'une application existante", 3000, 2, false, NOW(), NOW()),
