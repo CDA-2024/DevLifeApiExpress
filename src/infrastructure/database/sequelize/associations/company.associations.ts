@@ -14,6 +14,7 @@ CompanyModel.hasMany(CompanyContractModel, {
 
 CompanyModel.belongsToMany(CompanyModel, {
   through: "company_material_cm",
+  as: "RelatedCompanies",
 });
 
 BudgetModel.belongsTo(CompanyModel, {
