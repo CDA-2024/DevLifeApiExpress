@@ -9,6 +9,6 @@ export class Contract {
     public difficultyLevel: number,
     public isDeleted: boolean,
     public createdAt: Date,
-    public updateAt: Date
+    public updatedAt: Date
   ) {}
 }

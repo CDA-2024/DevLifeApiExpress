@@ -34,7 +34,7 @@ export class ContractSequelizeRepository implements ContractRepository {
         difficultyLevel: contract.difficultyLevel,
         isDeleted: contract.isDeleted,
         createdAt: contract.createdAt,
-        updateAt: contract.updatedAt,
+        updatedAt: contract.updatedAt,
       };
       return contractEntity;
     }
@@ -51,7 +51,7 @@ export class ContractSequelizeRepository implements ContractRepository {
       difficultyLevel: contract.difficultyLevel,
       isDeleted: contract.isDeleted,
       createdAt: contract.createdAt,
-      updatedAt: contract.updateAt,
+      updatedAt: contract.updatedAt,
     });
     return contract;
   }
