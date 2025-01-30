@@ -1,4 +1,4 @@
-export class CompagnyEmployee {
+export class EmployeeCompagny {
   constructor(
     public id: number,
     public id_employee: number,
