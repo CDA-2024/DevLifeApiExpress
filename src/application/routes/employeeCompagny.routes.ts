@@ -4,13 +4,9 @@ import { deleteEmlployeesCompagnyController, getEmlployeesCompagnyByIdController
 const router = Router();
 
 router.get("/", getEmlployeesCompagnyController);
-
 router.get("/:id", getEmlployeesCompagnyByIdController);
-
 router.post("/", saveEmlployeesCompagnyController);
-
 router.put("/:id", saveEmlployeesCompagnyController);
-
 router.delete("/:id", deleteEmlployeesCompagnyController);
 
 

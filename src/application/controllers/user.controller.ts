@@ -18,13 +18,8 @@ export const getUserByIdController = async (req: Request, res: Response) => {
   res.json(material);
 };
 
-export const createUserController = async (req: Request, res: Response) => {
-  const material = await usersUseCase.create(req.body);
-  res.json(material);
-};
-
-export const updateUserController = async (req: Request, res: Response) => {
-  const material = await usersUseCase.create(req.body);
+export const saveUserController = async (req: Request, res: Response) => {
+  const material = await usersUseCase.save(req.body);
   res.json(material);
 };
 
