@@ -7,8 +7,8 @@ export class Contract {
     public description: string,
     public reward: number,
     public difficulty_level: number,
-    public is_deleted: boolean,
     public created_at: Date,
-    public updated_at: Date
-  ) {}
+    public updated_at: Date,
+    public is_deleted: boolean,
+  ) { }
 }

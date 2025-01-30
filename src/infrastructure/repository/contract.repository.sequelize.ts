@@ -15,9 +15,9 @@ export class ContractSequelizeRepository implements ContractRepository {
           contract.description,
           contract.reward,
           contract.difficulty_level,
-          contract.is_deleted,
           contract.created_at,
-          contract.updated_at
+          contract.updated_at,
+          contract.is_deleted,
         )
     );
   }
