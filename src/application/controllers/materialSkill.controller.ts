@@ -19,19 +19,11 @@ export const getMaterialSkillByIdController = async (
   res.json(material);
 };
 
-export const createMaterialSkillController = async (
+export const saveMaterialSkillController = async (
   req: Request,
   res: Response
 ) => {
-  const material = await materialSkillUseCase.create(req.body);
-  res.json(material);
-};
-
-export const updateMaterialSkillController = async (
-  req: Request,
-  res: Response
-) => {
-  const material = await materialSkillUseCase.create(req.body);
+  const material = await materialSkillUseCase.save(req.body);
   res.json(material);
 };
 
