@@ -32,11 +32,6 @@ ContractModel.init(
     description: { type: DataTypes.STRING, allowNull: false },
     reward: { type: DataTypes.INTEGER, allowNull: false },
     difficulty_level: { type: DataTypes.INTEGER, allowNull: false },
-    is_deleted: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
     created_at: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -46,6 +41,11 @@ ContractModel.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
