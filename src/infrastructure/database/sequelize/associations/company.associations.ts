@@ -4,7 +4,7 @@ import { BudgetModel } from "../models/budget.model";
 
 CompanyContractModel.belongsTo(CompanyModel, {
   foreignKey: "id_company",
-  as: "company",
+  as: "contractCompany",
 });
 
 CompanyModel.hasMany(CompanyContractModel, {
@@ -14,8 +14,9 @@ CompanyModel.hasMany(CompanyContractModel, {
 
 BudgetModel.belongsTo(CompanyModel, {
   foreignKey: "id_company",
-  as: "company",
+  as: "budgetCompany",
 });
+
 CompanyModel.hasOne(BudgetModel, {
   foreignKey: "id_company",
   as: "budget",

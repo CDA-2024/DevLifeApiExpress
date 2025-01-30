@@ -41,4 +41,4 @@ EmployeeModel.init(
   { sequelize, tableName: "employee", timestamps: true }
 );
 
-export {EmployeeModel}
+export {EmployeeModel }

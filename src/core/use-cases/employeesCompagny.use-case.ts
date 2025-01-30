@@ -2,8 +2,8 @@ import { EmployeeCompagnySequilizeRepository } from "../../infrastructure/reposi
 import { EmployeeCompagny } from "../entities/employeeCompagny.entity";
 import { BaseUseCase } from "./base.use-case";
 
-export class EmlployeesCompagnyUseCase extends BaseUseCase<EmployeeCompagny> {
+export class EmployeesCompagnyUseCase extends BaseUseCase<EmployeeCompagny> {
   constructor() {
-    super(new EmployeeCompagnySequilizeRepository())
+    super(new EmployeeCompagnySequilizeRepository());
   }
 }
