@@ -20,7 +20,7 @@ export class ContractModel extends Model<
   declare difficultyLevel: number;
   declare isDeleted: boolean;
   declare createdAt: CreationOptional<Date>;
-  declare updateAt: CreationOptional<Date>;
+  declare updatedAt: CreationOptional<Date>;
 }
 
 ContractModel.init(
@@ -42,7 +42,7 @@ ContractModel.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updateAt: {
+    updatedAt: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
