@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserMongooseRepository } from "../../infrastructure/repository/user.repository.mongoose";
 import { UsersUseCase } from "../../core/use-cases/user.use-case";
+
 
 const usersUseCase = new UsersUseCase();
 
@@ -18,13 +18,8 @@ export const getUserByIdController = async (req: Request, res: Response) => {
   res.json(material);
 };
 
-export const createUserController = async (req: Request, res: Response) => {
-  const material = await usersUseCase.create(req.body);
-  res.json(material);
-};
-
-export const updateUserController = async (req: Request, res: Response) => {
-  const material = await usersUseCase.create(req.body);
+export const saveUserController = async (req: Request, res: Response) => {
+  const material = await usersUseCase.save(req.body);
   res.json(material);
 };
 

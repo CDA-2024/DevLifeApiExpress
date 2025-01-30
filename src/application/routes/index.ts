@@ -1,6 +1,7 @@
 import { Router } from "express";
 import userRoutes from "./user.routes";
 import materialRoutes from "./material.routes";
+import employeeCompagnyRoutes from "./employeeCompagny.routes";
 import materialSkillRoutes from "./materialSkill.routes";
 import companyRoutes from "./company.routes";
 import budgetRoutes from "./budget.routes";
@@ -15,5 +16,6 @@ router.use("/company", companyRoutes);
 router.use("/budget", budgetRoutes);
 router.use("/materialCm", materialCmRoutes);
 
+router.use("/employeeCompagny", employeeCompagnyRoutes);
 
 export default router;
