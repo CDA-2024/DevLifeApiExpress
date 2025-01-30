@@ -15,7 +15,7 @@ export abstract class BaseUseCase<T> {
     return await this.repository.findById(id);
   }
 
-  public async create(data: Partial<T>): Promise<T> {
+  public async save(data: Partial<T>): Promise<T> {
     return await this.repository.save(data as any);
   }
 
