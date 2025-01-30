@@ -49,7 +49,7 @@ EmployeeCompagnyModel.init(
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "employee_skill", timestamps: true }
+  { sequelize, tableName: "employee_compagny", timestamps: true }
 );
 
 export { EmployeeCompagnyModel };
