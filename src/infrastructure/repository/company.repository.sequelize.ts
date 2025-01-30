@@ -12,8 +12,9 @@ export class CompanySequelizeRepository implements CompanyRepository {
           company.id_user,
           company.name,
           company.experience,
-          company.createdAt,
-          company.updateAt
+          company.created_at,
+          company.updated_at,
+          company.is_deleted
         )
     );
   }
@@ -25,8 +26,9 @@ export class CompanySequelizeRepository implements CompanyRepository {
         id_user: company.id_user,
         name: company.name,
         experience: company.experience,
-        createdAt: company.createdAt,
-        updateAt: company.updateAt,
+        created_at: company.created_at,
+        updated_at: company.updated_at,
+        is_deleted: company.is_deleted,
       };
       return companyEntity;
     }
@@ -39,8 +41,9 @@ export class CompanySequelizeRepository implements CompanyRepository {
       id_user: company.id_user,
       name: company.name,
       experience: company.experience,
-      createdAt: company.createdAt,
-      updateAt: company.updateAt,
+      created_at: company.created_at,
+      updated_at: company.updated_at,
+      is_deleted: company.is_deleted,
     });
     return company;
   }

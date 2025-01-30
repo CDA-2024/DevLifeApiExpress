@@ -4,7 +4,8 @@ export class Company {
     public id_user: number,
     public name: string,
     public experience: string,
-    public createdAt: Date,
-    public updateAt: Date
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

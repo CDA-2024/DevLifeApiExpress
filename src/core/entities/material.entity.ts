@@ -1,13 +1,13 @@
 export class Material {
   constructor(
     public id: number,
-    public idMaterialSkill: number,
+    public id_material_skill: number,
     public name: string,
     public type: string,
     public description: string,
-    public imageUrl: string,
-    public createdAt: Date,
-    public updatedAt: Date,
-    public isDeleted: boolean
+    public image_url: string,
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

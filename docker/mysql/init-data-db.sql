@@ -1,5 +1,6 @@
 use devlife_mysql;
-INSERT INTO material (id_material_skill, name, type, description, image_url, createdAt, updatedAt, isdeleted) VALUES
+
+INSERT INTO material (id_material_skill, name, type, description, image_url, created_at, updated_at, is_deleted) VALUES
 (1, 'Ordinateur Basique', 'Matériel', 'PC de bureau standard pour tâches courantes', 'https://example.com/pc_basique.jpg', NOW(), NOW(), false),
 (2, 'Ordinateur Gaming', 'Matériel', 'PC avec carte graphique haut de gamme pour gamers', 'https://example.com/pc_gaming.jpg', NOW(), NOW(), false),
 (3, 'MacBook Pro', 'Matériel', 'Ordinateur portable puissant pour les développeurs', 'https://example.com/macbook_pro.jpg', NOW(), NOW(), false),
@@ -21,7 +22,7 @@ INSERT INTO material (id_material_skill, name, type, description, image_url, cre
 (19, 'Écran UltraWide', 'Matériel', 'Écran 34 pouces ultra-large pour multitâche', 'https://example.com/ecran_ultrawide.jpg', NOW(), NOW(), false),
 (20, 'Écran Tactile', 'Matériel', 'Écran tactile Full HD interactif', 'https://example.com/ecran_tactile.jpg', NOW(), NOW(), false);
 
-INSERT INTO material_skill (id, name, createdAt, updatedAt, isdeleted) VALUES
+INSERT INTO material_skill (id, name, created_at, updated_at, is_deleted) VALUES
 (1, 'Utilisation de PC basique', NOW(), NOW(), false),
 (2, 'Gaming haute performance', NOW(), NOW(), false),
 (3, 'Développement sur MacBook', NOW(), NOW(), false),
@@ -43,7 +44,7 @@ INSERT INTO material_skill (id, name, createdAt, updatedAt, isdeleted) VALUES
 (19, 'Travail sur écran ultra-large', NOW(), NOW(), false),
 (20, 'Utilisation écran tactile', NOW(), NOW(), false);
 
-INSERT INTO employee (id_skill, name, salary, createdAt, updatedAt, isdeleted) VALUES
+INSERT INTO employee (id_skill, name, salary, created_at, updated_at, is_deleted) VALUES
 (1, 'Jean Dev', 450, NOW(), NOW(), false),
 (2, 'Marie Code', 500, NOW(), NOW(), false),
 (3, 'Alice UI', 480, NOW(), NOW(), false),
@@ -55,7 +56,7 @@ INSERT INTO employee (id_skill, name, salary, createdAt, updatedAt, isdeleted) V
 (9, 'Nathan Cyber', 580, NOW(), NOW(), false),
 (10, 'Chloé Secure', 570, NOW(), NOW(), false);
 
-INSERT INTO contract (id, title, type, imageUrl, description, reward, difficultyLevel, isDeleted, createdAt, updatedAt) VALUES
+INSERT INTO contract (id, title, type, image_url, description, reward, difficulty_level, is_deleted, created_at, updated_at) VALUES
 (1,'Développement Site Web', 'Développement Web', 'https://example.com/contract1.jpg', "Création d'un site web responsive avec React et Node.js", 5000, 3, false, NOW(), NOW()),
 (2,'Application Mobile', 'Développement Mobile', 'https://example.com/contract2.jpg', "Développement d'une application mobile Android et iOS", 8000, 4, false, NOW(), NOW()),
 (3,'Maintenance Applicative', 'Maintenance', 'https://example.com/contract3.jpg', "Mise à jour et correction des bugs d'une application existante", 3000, 2, false, NOW(), NOW()),
@@ -67,7 +68,7 @@ INSERT INTO contract (id, title, type, imageUrl, description, reward, difficulty
 (9,"Développement d'IA", 'Intelligence Artificielle', 'https://example.com/contract9.jpg', "Création d'un modèle d'apprentissage automatique pour la reconnaissance d'images", 12000, 5, false, NOW(), NOW()),
 (10,'Chef de Projet Agile', 'Gestion de Projet', 'https://example.com/contract10.jpg', "Supervision d'une équipe de développeurs en méthode agile", 5000, 3, false, NOW(), NOW());
 
-INSERT INTO employee_skill (name, description, createdAt, updatedAt, isdeleted) VALUES
+INSERT INTO employee_skill (name, description, created_at, updated_at, is_deleted) VALUES
 ( 'Développement Fullstack', 'Capacité à coder en front et back-end', NOW(), NOW(), false),
 ( 'Développement Frontend', 'Maîtrise des technologies UI/UX (React, Vue)', NOW(), NOW(), false),
 ( 'Développement Backend', 'Gestion des API, bases de données, Node.js', NOW(), NOW(), false),

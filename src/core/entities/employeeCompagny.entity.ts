@@ -5,8 +5,8 @@ export class EmployeeCompagny {
     public id_compagny: number,
     public isavalaible: boolean,
     public experience: number,
-    public createdAt: Date,
-    public updatedAt: Date,
-    public isdeleted: boolean
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

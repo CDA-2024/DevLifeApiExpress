@@ -14,13 +14,13 @@ export class ContractModel extends Model<
   declare id: number;
   declare title: string;
   declare type: string;
-  declare imageUrl: string;
+  declare image_url: string;
   declare description: string;
   declare reward: number;
-  declare difficultyLevel: number;
-  declare isDeleted: boolean;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
+  declare difficulty_level: number;
+  declare is_deleted: boolean;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
 }
 
 ContractModel.init(
@@ -28,21 +28,21 @@ ContractModel.init(
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     title: { type: DataTypes.STRING, allowNull: false },
     type: { type: DataTypes.STRING, allowNull: false },
-    imageUrl: { type: DataTypes.STRING, allowNull: false },
+    image_url: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.STRING, allowNull: false },
     reward: { type: DataTypes.INTEGER, allowNull: false },
-    difficultyLevel: { type: DataTypes.INTEGER, allowNull: false },
-    isDeleted: {
+    difficulty_level: { type: DataTypes.INTEGER, allowNull: false },
+    is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
@@ -52,5 +52,6 @@ ContractModel.init(
     sequelize,
     tableName: "contract",
     timestamps: true,
+    underscored: true,
   }
 );

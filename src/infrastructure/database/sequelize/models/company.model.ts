@@ -15,8 +15,9 @@ class CompanyModel extends Model<
   declare id_user: number;
   declare name: string;
   declare experience: string;
-  declare createdAt: CreationOptional<Date>;
-  declare updateAt: CreationOptional<Date>;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 CompanyModel.init(
@@ -25,21 +26,27 @@ CompanyModel.init(
     id_user: { type: DataTypes.INTEGER, allowNull: false },
     name: { type: DataTypes.STRING, allowNull: false },
     experience: { type: DataTypes.STRING, allowNull: false },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updateAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
     sequelize,
     tableName: "company",
     timestamps: true,
+    underscored: true,
   }
 );
 

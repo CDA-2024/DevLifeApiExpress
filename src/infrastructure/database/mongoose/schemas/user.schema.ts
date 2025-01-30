@@ -23,7 +23,10 @@ const UserSchema = new Schema(
     },
     password: { type: String, required: true },
     role: { type: String, required: true, default: "user" },
-    isTutorialFinished: { type: Boolean, required: true, default: true },
+    is_tutorial_finished: { type: Boolean, required: true, default: true },
+    created_at: { type: Date, required: true, default: Date.now },
+    updated_at: { type: Date, required: true, default: Date.now },
+    is_deleted: { type: Boolean, required: true, default: false },
   },
   { timestamps: true, name: "user" }
 );

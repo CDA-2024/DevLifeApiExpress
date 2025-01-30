@@ -13,8 +13,9 @@ export class BudgetSequelizeRepository implements BudgetRepository {
           entry.revenus,
           entry.depenses,
           entry.benefices,
-          entry.createdAt,
-          entry.updateAt
+          entry.created_at,
+          entry.updated_at,
+          entry.is_deleted
         )
     );
   }
@@ -27,8 +28,9 @@ export class BudgetSequelizeRepository implements BudgetRepository {
         revenus: entry.revenus,
         depenses: entry.depenses,
         benefices: entry.benefices,
-        createdAt: entry.createdAt,
-        updateAt: entry.updateAt,
+        created_at: entry.created_at,
+        updated_at: entry.updated_at,
+        is_deleted: entry.is_deleted,
       };
       return entryEntity;
     }
@@ -42,8 +44,9 @@ export class BudgetSequelizeRepository implements BudgetRepository {
       revenus: entry.revenus,
       depenses: entry.depenses,
       benefices: entry.benefices,
-      createdAt: entry.createdAt,
-      updateAt: entry.updateAt,
+      created_at: entry.created_at,
+      updated_at: entry.updated_at,
+      is_deleted: entry.is_deleted,
     });
     return entry;
   }

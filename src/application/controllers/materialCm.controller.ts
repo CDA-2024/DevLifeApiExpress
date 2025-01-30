@@ -8,7 +8,10 @@ export const getMaterialCmController = async (req: Request, res: Response) => {
   res.json(materials);
 };
 
-export const getMaterialCmByIdController = async (req: Request, res: Response) => {
+export const getMaterialCmByIdController = async (
+  req: Request,
+  res: Response
+) => {
   const material = await getMaterialCmUseCase.getById(req.params.id);
   res.json(material);
 };
@@ -18,7 +21,10 @@ export const saveMaterialCmController = async (req: Request, res: Response) => {
   res.json(material);
 };
 
-export const deleteMaterialCmController = async (req: Request, res: Response) => {
+export const deleteMaterialCmController = async (
+  req: Request,
+  res: Response
+) => {
   await getMaterialCmUseCase.delete(req.params.id);
-  res.json({ message: 'Material deleted' });
-};        
+  res.json({ message: "Material deleted" });
+};

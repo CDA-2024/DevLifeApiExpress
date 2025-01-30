@@ -14,9 +14,9 @@ class EmployeeSkillModel extends Model<
   declare id: number;
   declare name: string;
   declare description: string;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-  declare isdeleted: boolean;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 EmployeeSkillModel.init(
@@ -24,23 +24,28 @@ EmployeeSkillModel.init(
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     name: { type: DataTypes.STRING, allowNull: false },
     description: { type: DataTypes.STRING, allowNull: false },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    isdeleted: {
+    is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "employee_skill", timestamps: true }
+  {
+    sequelize,
+    tableName: "employee_skill",
+    underscored: true,
+    timestamps: true,
+  }
 );
 
 export { EmployeeSkillModel };

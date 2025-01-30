@@ -2,7 +2,7 @@ import { EmployeeCompagny } from "../../core/entities/employeeCompagny.entity";
 import { EmployeeCompagnyRepository } from "../../core/interfaces/employeCompagny.repository.interface";
 import { EmployeeCompagnyModel } from "../database/sequelize/models/employeeCompagny.model";
 
-export class EmployeeCompagnySequilizeRepository
+export class EmployeeCompagnySequelizeRepository
   implements EmployeeCompagnyRepository
 {
   async findAll(): Promise<EmployeeCompagny[]> {
@@ -15,9 +15,9 @@ export class EmployeeCompagnySequilizeRepository
           compagnyEmployee.id_compagny,
           compagnyEmployee.isavalaible,
           compagnyEmployee.experience,
-          compagnyEmployee.createdAt,
-          compagnyEmployee.updatedAt,
-          compagnyEmployee.isdeleted
+          compagnyEmployee.created_at,
+          compagnyEmployee.updated_at,
+          compagnyEmployee.is_deleted
         )
     );
   }
@@ -35,9 +35,9 @@ export class EmployeeCompagnySequilizeRepository
       compagnyEmployee.id_compagny,
       compagnyEmployee.isavalaible,
       compagnyEmployee.experience,
-      compagnyEmployee.createdAt,
-      compagnyEmployee.updatedAt,
-      compagnyEmployee.isdeleted
+      compagnyEmployee.created_at,
+      compagnyEmployee.updated_at,
+      compagnyEmployee.is_deleted
     );
   }
 
@@ -48,7 +48,7 @@ export class EmployeeCompagnySequilizeRepository
       id_compagny: entity.id_compagny,
       isavalaible: entity.isavalaible,
       experience: entity.experience,
-      isdeleted: entity.isdeleted,
+      is_deleted: entity.is_deleted,
     });
 
     return new EmployeeCompagny(
@@ -57,9 +57,9 @@ export class EmployeeCompagnySequilizeRepository
       compagnyEmployee.id_compagny,
       compagnyEmployee.isavalaible,
       compagnyEmployee.experience,
-      compagnyEmployee.createdAt,
-      compagnyEmployee.updatedAt,
-      compagnyEmployee.isdeleted
+      compagnyEmployee.created_at,
+      compagnyEmployee.updated_at,
+      compagnyEmployee.is_deleted
     );
   }
 

@@ -1,4 +1,4 @@
-import { EmployeeSkillSequelizeRepository } from "../../infrastructure/repository/employeeSkill.repository.sequilize";
+import { EmployeeSkillSequelizeRepository } from "../../infrastructure/repository/employeeSkill.repository.sequelize";
 import { EmployeeSkill } from "../entities/employeeSkill.entity";
 import { BaseUseCase } from "./base.use-case";
 

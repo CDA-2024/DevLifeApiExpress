@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { UsersUseCase } from "../../core/use-cases/user.use-case";
 
-
 const usersUseCase = new UsersUseCase();
 
 export const getUsersController = async (req: Request, res: Response) => {

@@ -16,30 +16,34 @@ class MaterialModel extends Model<
   declare type: string;
   declare description: string;
   declare image_url: string;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-  declare isdeleted: boolean;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 MaterialModel.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     id_material_skill: { type: DataTypes.INTEGER, allowNull: false },
-    name: { type: DataTypes.STRING(100), allowNull: false , validate: { len: [3, 100] } },
+    name: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+      validate: { len: [3, 100] },
+    },
     type: { type: DataTypes.STRING(100), allowNull: false },
     description: { type: DataTypes.STRING(255), allowNull: false },
     image_url: { type: DataTypes.STRING(255), allowNull: false },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    isdeleted: {
+    is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,

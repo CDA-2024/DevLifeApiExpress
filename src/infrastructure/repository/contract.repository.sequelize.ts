@@ -11,13 +11,13 @@ export class ContractSequelizeRepository implements ContractRepository {
           contract.id,
           contract.title,
           contract.type,
-          contract.imageUrl,
+          contract.image_url,
           contract.description,
           contract.reward,
-          contract.difficultyLevel,
-          contract.isDeleted,
-          contract.createdAt,
-          contract.updatedAt
+          contract.difficulty_level,
+          contract.is_deleted,
+          contract.created_at,
+          contract.updated_at
         )
     );
   }
@@ -28,13 +28,13 @@ export class ContractSequelizeRepository implements ContractRepository {
         id: contract.id,
         title: contract.title,
         type: contract.type,
-        imageUrl: contract.imageUrl,
+        image_url: contract.image_url,
         description: contract.description,
         reward: contract.reward,
-        difficultyLevel: contract.difficultyLevel,
-        isDeleted: contract.isDeleted,
-        createdAt: contract.createdAt,
-        updatedAt: contract.updatedAt,
+        difficulty_level: contract.difficulty_level,
+        is_deleted: contract.is_deleted,
+        created_at: contract.created_at,
+        updated_at: contract.updated_at,
       };
       return contractEntity;
     }
@@ -45,13 +45,13 @@ export class ContractSequelizeRepository implements ContractRepository {
       id: contract.id,
       title: contract.title,
       type: contract.type,
-      imageUrl: contract.imageUrl,
+      image_url: contract.image_url,
       description: contract.description,
       reward: contract.reward,
-      difficultyLevel: contract.difficultyLevel,
-      isDeleted: contract.isDeleted,
-      createdAt: contract.createdAt,
-      updatedAt: contract.updatedAt,
+      difficulty_level: contract.difficulty_level,
+      is_deleted: contract.is_deleted,
+      created_at: contract.created_at,
+      updated_at: contract.updated_at,
     });
     return contract;
   }

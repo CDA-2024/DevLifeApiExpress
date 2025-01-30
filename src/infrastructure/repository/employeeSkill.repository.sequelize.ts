@@ -14,9 +14,9 @@ export class EmployeeSkillSequelizeRepository
           employeeSkill.id,
           employeeSkill.name,
           employeeSkill.description,
-          employeeSkill.createdAt,
-          employeeSkill.updatedAt,
-          employeeSkill.isdeleted
+          employeeSkill.created_at,
+          employeeSkill.updated_at,
+          employeeSkill.is_deleted
         )
     );
   }
@@ -32,9 +32,9 @@ export class EmployeeSkillSequelizeRepository
       employeeSkill.id,
       employeeSkill.name,
       employeeSkill.description,
-      employeeSkill.createdAt,
-      employeeSkill.updatedAt,
-      employeeSkill.isdeleted
+      employeeSkill.created_at,
+      employeeSkill.updated_at,
+      employeeSkill.is_deleted
     );
   }
 
@@ -43,16 +43,16 @@ export class EmployeeSkillSequelizeRepository
       id: entity.id,
       name: entity.name,
       description: entity.description,
-      isdeleted: entity.isDeleted,
+      is_deleted: entity.is_deleted,
     });
 
     return new EmployeeSkill(
       employeeSkill.id,
       employeeSkill.name,
       employeeSkill.description,
-      employeeSkill.createdAt,
-      employeeSkill.updatedAt,
-      employeeSkill.isdeleted
+      employeeSkill.created_at,
+      employeeSkill.updated_at,
+      employeeSkill.is_deleted
     );
   }
 

@@ -14,9 +14,9 @@ export class MaterialSequelizeRepository implements MaterialRepository {
           material.type,
           material.description,
           material.image_url,
-          material.createdAt,
-          material.updatedAt,
-          material.isdeleted
+          material.created_at,
+          material.updated_at,
+          material.is_deleted
         )
     );
   }
@@ -31,23 +31,23 @@ export class MaterialSequelizeRepository implements MaterialRepository {
       materials.type,
       materials.description,
       materials.image_url,
-      materials.createdAt,
-      materials.updatedAt,
-      materials.isdeleted
+      materials.created_at,
+      materials.updated_at,
+      materials.is_deleted
     );
   }
 
   async save(material: Material): Promise<Material> {
     await MaterialModel.upsert({
       id: material.id,
-      id_material_skill: material.idMaterialSkill,
+      id_material_skill: material.id_material_skill,
       name: material.name,
       type: material.type,
       description: material.description,
-      image_url: material.imageUrl,
-      createdAt: material.createdAt,
-      updatedAt: material.updatedAt,
-      isdeleted: material.isDeleted,
+      image_url: material.image_url,
+      created_at: material.created_at,
+      updated_at: material.updated_at,
+      is_deleted: material.is_deleted,
     });
     return material;
   }

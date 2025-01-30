@@ -19,8 +19,9 @@ class CompanyContractModel extends Model<
   declare is_completed: boolean;
   declare progress: number;
   declare start_date: Date;
-  declare createdAt: CreationOptional<Date>;
-  declare updateAt: CreationOptional<Date>;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 CompanyContractModel.init(
@@ -41,14 +42,20 @@ CompanyContractModel.init(
     },
     progress: { type: DataTypes.INTEGER, allowNull: false },
     start_date: { type: DataTypes.DATE, allowNull: false },
-    createdAt: { type: DataTypes.DATE, allowNull: true },
-    updateAt: { type: DataTypes.DATE, allowNull: true },
+    created_at: { type: DataTypes.DATE, allowNull: true },
+    updated_at: { type: DataTypes.DATE, allowNull: true },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
   {
     sequelize,
     tableName: "companyContract",
     timestamps: true,
+    underscored: true,
   }
 );
 
-export {CompanyContractModel}
+export { CompanyContractModel };

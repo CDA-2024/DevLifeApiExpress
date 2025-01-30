@@ -16,8 +16,9 @@ export class BudgetModel extends Model<
   declare revenus: number;
   declare depenses: number;
   declare benefices: number;
-  declare createdAt: CreationOptional<Date>;
-  declare updateAt: CreationOptional<Date>;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 BudgetModel.init(
@@ -27,20 +28,26 @@ BudgetModel.init(
     revenus: { type: DataTypes.FLOAT, allowNull: false },
     depenses: { type: DataTypes.FLOAT, allowNull: false },
     benefices: { type: DataTypes.FLOAT, allowNull: false },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updateAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+    },
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
     sequelize,
     tableName: "budget",
     timestamps: true,
+    underscored: true,
   }
 );

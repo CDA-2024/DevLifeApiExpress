@@ -3,8 +3,8 @@ export class EmployeeSkill {
     public id: number,
     public name: string,
     public description: string,
-    public createdAt: Date,
-    public updatedAt: Date,
-    public isDeleted: boolean
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

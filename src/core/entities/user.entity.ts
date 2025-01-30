@@ -5,6 +5,9 @@ export class User {
     public email: string,
     public password: string,
     public role: string,
-    public isTutorialFinished: boolean
+    public is_tutorial_finished: boolean,
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

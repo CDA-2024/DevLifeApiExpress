@@ -15,9 +15,9 @@ class EmployeeModel extends Model<
   declare id_skill: number;
   declare name: string;
   declare salary: number;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-  declare isdeleted: boolean
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 EmployeeModel.init(
@@ -26,19 +26,23 @@ EmployeeModel.init(
     id_skill: { type: DataTypes.INTEGER, allowNull: false },
     name: { type: DataTypes.STRING, allowNull: false },
     salary: { type: DataTypes.INTEGER, allowNull: false },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    isdeleted: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false}
+    is_deleted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
-  { sequelize, tableName: "employee", timestamps: true }
+  { sequelize, tableName: "employee", underscored: true, timestamps: true }
 );
 
-export {EmployeeModel }
+export { EmployeeModel };

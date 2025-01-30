@@ -13,9 +13,9 @@ class MaterialSkillModel extends Model<
 > {
   declare id: number;
   declare name: string;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-  declare isdeleted: boolean;
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 MaterialSkillModel.init(
@@ -26,23 +26,28 @@ MaterialSkillModel.init(
       allowNull: false,
       validate: { len: [3, 100] },
     },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    isdeleted: {
+    is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "material_skill", timestamps: true }
+  {
+    sequelize,
+    tableName: "material_skill",
+    underscored: true,
+    timestamps: true,
+  }
 );
 
 export { MaterialSkillModel };

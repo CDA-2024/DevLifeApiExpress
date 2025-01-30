@@ -8,23 +8,23 @@ export class MaterialSkillSequelizeRepository
   async findAll(): Promise<MaterialSkill[]> {
     const materialSkills = await MaterialSkillModel.findAll();
     return materialSkills.map(
-      (materialSkill) => new MaterialSkill(materialSkill.id, materialSkill.name)
+      (materialSkill) => new MaterialSkill(materialSkill.id, materialSkill.name, materialSkill.created_at, materialSkill.updated_at, materialSkill.is_deleted)
     );
   }
 
   async findById(id: string): Promise<MaterialSkill | null> {
     const materialSkill = await MaterialSkillModel.findByPk(id);
     if (!materialSkill) return null;
-    return new MaterialSkill(materialSkill.id, materialSkill.name);
+    return new MaterialSkill(materialSkill.id, materialSkill.name, materialSkill.created_at, materialSkill.updated_at, materialSkill.is_deleted);
   }
 
   async save(entity: MaterialSkill): Promise<MaterialSkill> {
     const materialSkill = await MaterialSkillModel.create({
       id: 0,
       name: entity.name,
-      isdeleted: false,
+      is_deleted: false,
     });
-    return new MaterialSkill(materialSkill.id, materialSkill.name);
+    return new MaterialSkill(materialSkill.id, materialSkill.name, materialSkill.created_at, materialSkill.updated_at, materialSkill.is_deleted);
   }
 
   async delete(id: string): Promise<void> {

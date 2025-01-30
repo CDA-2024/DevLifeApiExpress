@@ -8,7 +8,8 @@ export class CompanyContract {
     public is_completed: boolean,
     public progress: number,
     public start_date: Date,
-    public createdAt: Date,
-    public updateAt: Date
+    public created_at: Date,
+    public updated_at: Date,
+    public is_deleted: boolean
   ) {}
 }

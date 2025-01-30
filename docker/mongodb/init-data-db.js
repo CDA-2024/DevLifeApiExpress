@@ -8,9 +8,9 @@ if (db.users.countDocuments() === 0) {
       email: "jean.dupont@example.com",
       password: "password123",
       role: "admin",
-      isTutorialFinished: true,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      is_tutorial_finished: true,
+      created_at: new Date(),
+      updated_at: new Date(),
     },
     {
       id: 2,
@@ -18,9 +18,9 @@ if (db.users.countDocuments() === 0) {
       email: "marie.curie@example.com",
       password: "securepass",
       role: "user",
-      isTutorialFinished: false,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      is_tutorial_finished: false,
+      created_at: new Date(),
+      updated_at: new Date(),
     },
     {
       id: 3,
@@ -28,9 +28,9 @@ if (db.users.countDocuments() === 0) {
       email: "alan.turing@example.com",
       password: "enigma",
       role: "moderator",
-      isTutorialFinished: false,
-      createdAt: new Date(),
-      updatedAt: new Date(),
+      is_tutorial_finished: false,
+      created_at: new Date(),
+      updated_at: new Date(),
     },
   ]);
 

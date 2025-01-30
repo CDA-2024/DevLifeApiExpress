@@ -13,7 +13,10 @@ export class UserMongooseRepository implements UserRepository {
           user.email,
           user.password,
           user.role,
-          user.isTutorialFinished
+          user.is_tutorial_finished,
+          user.created_at,
+          user.updated_at,
+          user.is_deleted
         )
     );
   }
@@ -27,7 +30,10 @@ export class UserMongooseRepository implements UserRepository {
       user.email,
       user.password,
       user.role,
-      user.isTutorialFinished
+      user.is_tutorial_finished,
+      user.created_at,
+      user.updated_at,
+      user.is_deleted
     );
   }
 
@@ -44,7 +50,10 @@ export class UserMongooseRepository implements UserRepository {
       savedUser.email,
       savedUser.password,
       savedUser.role,
-      savedUser.isTutorialFinished
+      savedUser.is_tutorial_finished,
+      user.created_at,
+      user.updated_at,
+      user.is_deleted
     );
   }
 

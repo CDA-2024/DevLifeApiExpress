@@ -19,8 +19,9 @@ export class CompanyContractSequelizeRepository
           contract.is_completed,
           contract.progress,
           contract.start_date,
-          contract.createdAt,
-          contract.updateAt
+          contract.created_at,
+          contract.updated_at,
+          contract.is_deleted
         )
     );
   }
@@ -36,8 +37,9 @@ export class CompanyContractSequelizeRepository
         contract.is_completed,
         contract.progress,
         contract.start_date,
-        contract.createdAt,
-        contract.updateAt
+        contract.created_at,
+        contract.updated_at,
+        contract.is_deleted
       );
     }
     return null;
@@ -52,8 +54,9 @@ export class CompanyContractSequelizeRepository
       is_completed: companyContract.is_completed,
       progress: companyContract.progress,
       start_date: companyContract.start_date,
-      createdAt: companyContract.createdAt,
-      updateAt: companyContract.updateAt,
+      created_at: companyContract.created_at,
+      updated_at: companyContract.updated_at,
+      is_deleted: companyContract.is_deleted,
     });
     return companyContract;
   }

@@ -2,7 +2,7 @@ import { Employee } from "../../core/entities/employee.entity";
 import { EmployeeRepository } from "../../core/interfaces/employee.repository.interface";
 import { EmployeeModel } from "../database/sequelize/associations/employee.associations";
 
-export class EmployeeSequilizeRepository implements EmployeeRepository {
+export class EmployeeSequelizeRepository implements EmployeeRepository {
   async findAll(): Promise<Employee[]> {
     const employees = await EmployeeModel.findAll();
     return employees.map(
@@ -12,9 +12,9 @@ export class EmployeeSequilizeRepository implements EmployeeRepository {
           employee.name,
           employee.id_skill,
           employee.salary,
-          employee.createdAt,
-          employee.updatedAt,
-          employee.isdeleted
+          employee.created_at,
+          employee.updated_at,
+          employee.is_deleted
         )
     );
   }
@@ -31,9 +31,9 @@ export class EmployeeSequilizeRepository implements EmployeeRepository {
       employee.name,
       employee.id_skill,
       employee.salary,
-      employee.createdAt,
-      employee.updatedAt,
-      employee.isdeleted
+      employee.created_at,
+      employee.updated_at,
+      employee.is_deleted
     );
   }
 
@@ -43,7 +43,7 @@ export class EmployeeSequilizeRepository implements EmployeeRepository {
       name: entity.name,
       id_skill: entity.id_skill,
       salary: entity.salary,
-      isdeleted: entity.isDeleted,
+      is_deleted: entity.is_deleted,
     });
 
     return new Employee(
@@ -51,9 +51,9 @@ export class EmployeeSequilizeRepository implements EmployeeRepository {
       employee.name,
       employee.id_skill,
       employee.salary,
-      employee.createdAt,
-      employee.updatedAt,
-      employee.isdeleted
+      employee.created_at,
+      employee.updated_at,
+      employee.is_deleted
     );
   }
 

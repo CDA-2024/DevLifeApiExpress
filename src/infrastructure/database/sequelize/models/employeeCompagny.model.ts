@@ -16,10 +16,9 @@ class EmployeeCompagnyModel extends Model<
   declare id_compagny: number;
   declare isavalaible: boolean;
   declare experience: number;
-  declare createdAt: CreationOptional<Date>;
-  declare updatedAt: CreationOptional<Date>;
-  declare isdeleted: boolean;
-
+  declare created_at: CreationOptional<Date>;
+  declare updated_at: CreationOptional<Date>;
+  declare is_deleted: boolean;
 }
 
 EmployeeCompagnyModel.init(
@@ -33,23 +32,28 @@ EmployeeCompagnyModel.init(
       defaultValue: true,
     },
     experience: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
-    createdAt: {
+    created_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    updatedAt: {
+    updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    isdeleted: {
+    is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
   },
-  { sequelize, tableName: "employee_compagny", timestamps: true }
+  {
+    sequelize,
+    tableName: "employee_compagny",
+    underscored: true,
+    timestamps: true,
+  }
 );
 
 export { EmployeeCompagnyModel };
