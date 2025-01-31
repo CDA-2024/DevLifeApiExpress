@@ -6,6 +6,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devlife_mysql
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_general_ci
+      LANG: C.UTF-8
     ports:
       - "3307:3306"
     volumes:
