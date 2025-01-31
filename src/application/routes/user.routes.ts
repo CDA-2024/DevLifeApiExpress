@@ -10,10 +10,10 @@ import {
 
 const router = Router();
 
-router.get("/users", getUsersController);
-router.get("/users/:id", getUserByIdController);
-router.post("/users", saveUserController);
-router.put("/users/:id", saveUserController);
-router.delete("/users/:id", deleteUserController);
+router.get("/", getUsersController);
+router.get("/:id", getUserByIdController);
+router.post("/", saveUserController);
+router.put("/:id", saveUserController);
+router.delete("/:id", deleteUserController);
 
 export default router;
