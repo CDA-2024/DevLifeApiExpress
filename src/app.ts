@@ -2,6 +2,7 @@ import express from "express";
 import routes from "./application/routes";
 import { connectToMongoDB } from "./infrastructure/database/mongoose/config/db.config";
 import { syncDatabase } from "./infrastructure/database/sequelize/config/db.init";
+import { errorHandler } from "./application/middlewares/error-handler.middleware";
 
 
 const app = express();
@@ -13,5 +14,4 @@ app.use("/api", routes);
 
 connectToMongoDB();
 syncDatabase();
-
 export default app;
