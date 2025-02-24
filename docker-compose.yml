@@ -2,7 +2,6 @@ services:
   mysql:
     image: mysql:latest
     container_name: devlife_mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devlife_mysql
@@ -17,7 +16,6 @@ services:
   mongodb:
     image: mongo:latest
     container_name: devlife_mongo
-    restart: always
     ports:
       - ${MONGO_PORT_DOCKER}
     environment:
