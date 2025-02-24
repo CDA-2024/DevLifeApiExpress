@@ -19,6 +19,16 @@ export const getCompanyContractByIdController = async (
   res.json(companyContract);
 };
 
+export const getCompanyContractsByCompanyIdController = async (
+  req: Request,
+  res: Response
+) => {
+  const companyContracts = await companyContractUseCase.getCompanyContractsByCompanyId(
+    parseInt(req.params.id)
+  );
+  res.json(companyContracts);
+};
+
 export const saveCompanyContractController = async (
   req: Request,
   res: Response

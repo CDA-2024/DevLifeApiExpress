@@ -11,6 +11,6 @@ const router = Router();
 router.get("/", getContractController);
 router.get("/:id", getContractByIdController);
 router.post("/", saveContractController);
-router.delete("/", deleteContractController);
+router.delete("/:id", deleteContractController);
 
 export default router;

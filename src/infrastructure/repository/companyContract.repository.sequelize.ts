@@ -1,5 +1,4 @@
 import { CompanyContract } from "../../core/entities/companyContract.entity";
-import { Contract } from "../../core/entities/contract.entity";
 import { CompanyContractRepository } from "../../core/interfaces/companyContract.repository.interface";
 import { CompanyContractModel } from "../database/sequelize/associations/company.associations";
 
@@ -44,6 +43,31 @@ export class CompanyContractSequelizeRepository
     }
     return null;
   }
+
+  async getCompanyContractsByCompanyId(companyId: number): Promise<CompanyContract[]> {
+    const contracts = await CompanyContractModel.findAll({
+      where: {
+        id_company: companyId,
+      },
+    });
+    return contracts.map(
+      (contract) =>
+        new CompanyContract(
+          contract.id,
+          contract.id_company,
+          contract.id_contract,
+          contract.deadline,
+          contract.is_accepted,
+          contract.is_completed,
+          contract.progress,
+          contract.start_date,
+          contract.created_at,
+          contract.updated_at,
+          contract.is_deleted
+        )
+    );
+  }
+
   async save(companyContract: CompanyContract): Promise<CompanyContract> {
     await CompanyContractModel.upsert({
       id: companyContract.id,
