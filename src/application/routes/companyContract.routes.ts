@@ -4,13 +4,15 @@ import {
   getCompanyContractByIdController,
   saveCompanyContractController,
   deleteCompanyContractController,
+  getCompanyContractsByCompanyIdController,
 } from "../controllers/companyContract.controller";
 
 const router = Router();
 
 router.get("/", getCompanyContractController);
 router.get("/:id", getCompanyContractByIdController);
+router.get("/company/:id", getCompanyContractsByCompanyIdController);
 router.post("/", saveCompanyContractController);
-router.delete("/", deleteCompanyContractController);
+router.delete("/:id", deleteCompanyContractController);
 
 export default router;
