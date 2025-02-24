@@ -33,17 +33,25 @@ CompanyContractModel.init(
     is_accepted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: true,
+      defaultValue: false,
     },
     is_completed: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
     },
-    progress: { type: DataTypes.INTEGER, allowNull: false },
-    start_date: { type: DataTypes.DATE, allowNull: false },
-    created_at: { type: DataTypes.DATE, allowNull: true },
-    updated_at: { type: DataTypes.DATE, allowNull: true },
+    progress: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
+    start_date: { type: DataTypes.DATE, allowNull: true, defaultValue: null },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
+    },
     is_deleted: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
