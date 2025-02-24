@@ -10,7 +10,7 @@ export async function syncDatabase() {
     await sequelize.authenticate();
     console.log("Connexion à la base de données réussie.");
 
-    sequelize.sync({
+    await sequelize.sync({
       alter: true,
     });
 
@@ -73,7 +73,7 @@ async function loadSQLData() {
       if (error) {
         logger.error(
           "Erreur lors du chargement du fichier SQL :",
-          error.message
+          error
         );
         return;
       }
