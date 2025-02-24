@@ -1,11 +1,9 @@
 import { Router } from "express";
 import {
-
   deleteUserController,
   getUserByIdController,
   getUsersController,
   saveUserController,
-
 } from "../controllers/user.controller";
 
 const router = Router();
