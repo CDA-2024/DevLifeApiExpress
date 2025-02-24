@@ -39,7 +39,7 @@ export class UserMongooseRepository implements UserRepository {
 
   async save(user: User): Promise<User> {
     const savedUser = await UserModel.create({
-      username: user.name,
+      name: user.name,
       email: user.email,
       password: user.password,
       role: user.role,
