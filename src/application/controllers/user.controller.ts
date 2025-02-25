@@ -30,10 +30,18 @@ export const getUserByIdController = async (
   }
 };
 
-export const saveUserController = async (req: Request, res: Response) => {
-  const user = await usersUseCase.save(req.body);
-  // generateTokenAndSetCookie(user, res);
-  res.json(user);
+export const saveUserController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const user = await usersUseCase.save(req.body);
+    // generateTokenAndSetCookie(user, res);
+    res.json(user);
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const deleteUserController = async (
