@@ -1,13 +1,13 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response, ErrorRequestHandler } from "express";
 import { CustomErrorHandler } from "../custom-error-handler";
 import logger from "../../infrastructure/logger/logger";
 
-export const errorHandler = (
+export const errorHandler: ErrorRequestHandler = (
   err: Error,
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   let statusCode = 500;
   let message = "Internal Server Error";
 
@@ -18,7 +18,7 @@ export const errorHandler = (
 
   logger.error(`[ERROR] ${statusCode} - ${message}`);
 
-  return res.status(statusCode).json({
+  res.status(statusCode).json({
     success: false,
     message,
   });

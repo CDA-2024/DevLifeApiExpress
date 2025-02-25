@@ -13,11 +13,7 @@ export const getMaterialController = async (
     const materials = await materialUseCase.getAll();
     res.json(materials);
   } catch (error) {
-    next(
-      CustomErrorHandler.internal(
-        "Erreur serveur lors de la récupération des matériau."
-      )
-    );
+    next(error);
   }
 };
 
@@ -28,21 +24,24 @@ export const getMaterialByIdController = async (
 ) => {
   try {
     const materialId = req.params.id;
-    if (!materialId) {
-      return next(
-        CustomErrorHandler.badRequest("L'identifiant du matériau est requis.")
-      );
-    }
     const material = await materialUseCase.getById(materialId);
     res.json(material);
   } catch (error) {
-    next(CustomErrorHandler.notFound("Aucun matériau trouvé."));
+    next(error);
   }
 };
 
-export const saveMaterialController = async (req: Request, res: Response) => {
-  const material = await materialUseCase.save(req.body);
-  res.json(material);
+export const saveMaterialController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const material = await materialUseCase.save(req.body);
+    res.status(201).json(material);
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const deleteMaterialController = async (
@@ -51,15 +50,9 @@ export const deleteMaterialController = async (
   next: NextFunction
 ) => {
   try {
-    const materialId = req.params.id;
-    if (!materialId) {
-      return next(
-        CustomErrorHandler.badRequest("L'identifiant du matériau est requis.")
-      );
-    }
     const material = await materialUseCase.delete(req.params.id);
     res.json(material);
   } catch (error) {
-    next(CustomErrorHandler.notFound("Aucun matériau trouvé."));
+    next(error);
   }
 };
