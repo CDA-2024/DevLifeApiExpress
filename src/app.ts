@@ -15,9 +15,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use("/api", routes);
-// TODO: implement this -> app.use(errorHandler);
 
-
+app.use(errorHandler);
 // parser les cookies
 app.use(cookieParser());
 
