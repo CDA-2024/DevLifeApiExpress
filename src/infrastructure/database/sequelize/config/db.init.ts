@@ -23,10 +23,7 @@ export async function syncDatabase() {
 }
 
 async function loadSQLData() {
-  const sqlFilePath = path.resolve(
-    __dirname,
-    "../../../../../docker/mysql/init-data-db.sql"
-  );
+  const sqlFilePath = path.resolve(__dirname, "./init-data-db.sql");
 
   if (!fs.existsSync(sqlFilePath)) {
     logger.error("Le fichier SQL n'existe pas.");
@@ -71,10 +68,7 @@ async function loadSQLData() {
 
     exec(command, (error, stdout, stderr) => {
       if (error) {
-        logger.error(
-          "Erreur lors du chargement du fichier SQL :",
-          error
-        );
+        logger.error("Erreur lors du chargement du fichier SQL :", error);
         return;
       }
       logger.info("Base de données initialisée avec succès !");

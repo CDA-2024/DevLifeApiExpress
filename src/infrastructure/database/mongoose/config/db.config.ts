@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const connectToMongoDB = async () => {
-  const mongoUri = process.env.MONGO_URI || "";
+  const mongoUri = process.env.MONGO_URI ?? "";
 
   try {
     await mongoose.connect(mongoUri);
