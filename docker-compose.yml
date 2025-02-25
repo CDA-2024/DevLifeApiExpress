@@ -1,0 +1,33 @@
+services:
+  mysql:
+    image: mysql:latest
+    container_name: devlife_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: devlife_mysql
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_general_ci
+      LANG: C.UTF-8
+    ports:
+      - ${MYSQL_PORT_DOCKER}
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+  mongodb:
+    image: mongo:latest
+    container_name: devlife_mongo
+    ports:
+      - ${MONGO_PORT_DOCKER}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: devlife_mongo
+    volumes:
+      - mongodb-db:/data/db
+      - mongodb-config:/data/configdb
+      - ./docker/mongodb/init-data-db.js:/docker-entrypoint-initdb.d/init-data-db.js
+
+volumes:
+  mysql-db:
+  mongodb-db:
+  mongodb-config:
