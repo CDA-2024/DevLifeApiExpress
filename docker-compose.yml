@@ -25,7 +25,7 @@ services:
     volumes:
       - mongodb-db:/data/db
       - mongodb-config:/data/configdb
-      - ./docker/mongodb/init-data-db.js:/docker-entrypoint-initdb.d/init-data-db.js
+      - ./src/infrastructure/database/mongoose/config/init-data-db.js:/docker-entrypoint-initdb.d/init-data-db.js
 
 volumes:
   mysql-db:
