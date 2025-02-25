@@ -20,7 +20,7 @@ export const getUserByIdController = async (req: Request, res: Response) => {
 
 export const saveUserController = async (req: Request, res: Response) => {
   const user = await usersUseCase.save(req.body);
-  generateTokenAndSetCookie(user, res);
+  // generateTokenAndSetCookie(user, res);
   res.json(user);
 };
 

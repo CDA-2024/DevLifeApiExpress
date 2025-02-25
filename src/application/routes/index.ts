@@ -10,6 +10,7 @@ import contractRoutes from "./contract.routes";
 import companyContractRoutes from "./companyContract.routes";
 import employeeRoutes from "./employee.routes"
 import employeeSkillRoute from "./employeeSkill.routes";
+import authRoutes from "./auth.routes";
 
 const router = Router();
 
@@ -24,5 +25,7 @@ router.use("/employeeCompagny", employeeCompagnyRoutes);
 router.use("/contracts", contractRoutes);
 router.use("/companyContracts", companyContractRoutes);
 router.use("/employee", employeeRoutes);
+router.use("/auth", authRoutes);
+
 
 export default router;

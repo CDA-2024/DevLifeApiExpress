@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const UserSchema = new Schema(
   {
-    id: { type: Number, required: true, unique: true },
+    _id: { type: Schema.Types.ObjectId, required: true },
     name: {
       type: String,
       required: [true, "User name required"],
@@ -23,10 +23,11 @@ const UserSchema = new Schema(
     },
     password: { type: String, required: true },
     role: { type: String, required: true, default: "user" },
-    is_tutorial_finished: { type: Boolean, required: true, default: true },
-    created_at: { type: Date, required: true, default: Date.now },
-    updated_at: { type: Date, required: true, default: Date.now },
+    is_tutorial_finished: { type: Boolean, required: true, default: false },
     is_deleted: { type: Boolean, required: true, default: false },
+    email_verified: { type: Boolean, default: false },
+    verification_token: { type: String, default: null },
+    verification_token_expires: { type: Date, default: null },
   },
   { timestamps: true, name: "user" }
 );
