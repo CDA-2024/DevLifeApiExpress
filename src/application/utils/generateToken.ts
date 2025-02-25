@@ -7,7 +7,7 @@ dotenv.config(); // Charger les variables d'environnement
 const JWT_SECRET = process.env.JWT_SECRET as string;
 
 interface User {
-  id: number;
+  _id: string;
   role: string;
 }
 
@@ -17,7 +17,7 @@ export const generateTokenAndSetCookie = (
 ): string => {
   // Créer le payload : id + rôle
   const tokenPayload = {
-    userId: user.id,
+    userId: user._id,
     role: user.role,
   };
 
