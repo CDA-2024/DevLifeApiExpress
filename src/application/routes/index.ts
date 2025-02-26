@@ -25,7 +25,7 @@ router.use("/employeeCompagny", employeeCompagnyRoutes);
 router.use("/contracts", contractRoutes);
 router.use("/companyContracts", companyContractRoutes);
 router.use("/employee", employeeRoutes);
-router.use("/auth", authRoutes);
+// router.use("/auth", authRoutes); // TODO : Fix this
 
 
 export default router;
