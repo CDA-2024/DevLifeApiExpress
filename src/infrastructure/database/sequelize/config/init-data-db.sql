@@ -69,6 +69,21 @@ INSERT INTO employee (id, id_skill, name, salary, created_at, updated_at, is_del
 (9, 9, 'Nathan Cyber', 580, NOW(), NOW(), false),
 (10, 10, 'Chloé Secure', 570, NOW(), NOW(), false);
 
+INSERT INTO company (id, id_user, name, experience, created_at, updated_at, is_deleted) VALUES 
+(1, 1, "UserTest", 500, NOW(), NOW(), false);
+
+INSERT INTO employee_compagny (id, id_employee, id_compagny, isavalaible, experience, created_at, updated_at, is_deleted) VALUES 
+(1, 1, 1, true, 450, NOW(), NOW(), false),
+(2, 2, 1, true, 500, NOW(), NOW(), false),
+(3, 3, 1, true, 480, NOW(), NOW(), false),
+(4, 4, 1, true, 470, NOW(), NOW(), false),
+(5, 5, 1, true, 550, NOW(), NOW(), false),
+(6, 6, 1, true, 530, NOW(), NOW(), false),
+(7, 7, 1, true, 600, NOW(), NOW(), false),
+(8, 8, 1, false, 2130, NOW(), NOW(), false),
+(9, 9, 1, false, 580, NOW(), NOW(), false),
+(10, 10, 1, false, 1823, NOW(), NOW(), false);
+
 INSERT INTO contract (id, title, type, image_url, description, reward, difficulty_level, is_deleted, created_at, updated_at) VALUES
 (1,'Développement Site Web', 'Développement Web', 'https://example.com/contract1.jpg', "Création d'un site web responsive avec React et Node.js", 5000, 3, false, NOW(), NOW()),
 (2,'Application Mobile', 'Développement Mobile', 'https://example.com/contract2.jpg', "Développement d'une application mobile Android et iOS", 8000, 4, false, NOW(), NOW()),
