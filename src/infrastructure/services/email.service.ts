@@ -35,8 +35,8 @@ class EmailService {
     }
 
     async sendVerificationEmail(to: string, token: string): Promise<void> {
-        const appUrl = process.env.APP_URL || 'http://localhost:3000';
-        const verificationUrl = `${appUrl}/auth/verify-email?token=${token}`;
+        const appUrl = process.env.APP_URL || 'http://localhost:5173';
+        const verificationUrl = `${appUrl}/auth/email-confirmed?token=${token}`;
 
         const info = await this.transporter.sendMail({
             from: `"DevLife" <${process.env.NODE_ENV === 'development' ? 'noreply@devlife.com' : process.env.EMAIL_USER}>`,
