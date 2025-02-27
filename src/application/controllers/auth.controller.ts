@@ -14,20 +14,20 @@ export const loginController: RequestHandler = async (req, res, next) => {
         const { name, email, password } = req.body;
         logger.info(`Login attempt with name: ${name}, email: ${email}`);
         if (!name && !email) {
-            res.status(400).json({ 
-                error: "Identifiant ou mot de passe incorrect" 
+            res.status(400).json({
+                error: "Identifiant ou mot de passe incorrect"
             });
             return;
         }
         if (!password) {
-            res.status(400).json({ 
-                error: "Mot de passe incorrect" 
+            res.status(400).json({
+                error: "Mot de passe incorrect"
             });
             return;
         }
 
         let user;
-        
+
         if (name) {
             user = await usersUseCase.getByName(name);
         }
@@ -41,10 +41,22 @@ export const loginController: RequestHandler = async (req, res, next) => {
             return;
         }
 
+
+
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        
+
         if (!isPasswordValid) {
             res.status(401).json({ error: "Identifiant ou mot de passe incorrect" });
+            return;
+        }
+
+        // Vérifier si le compte est confirmé
+        if (!user.email_verified) {
+            res.status(403).json({
+                error: "Compte non vérifié",
+                needsVerification: true,
+                email: user.email
+            });
             return;
         }
 
@@ -73,7 +85,7 @@ export const registerController: RequestHandler = async (req, res, next) => {
 
         if (!name || !email || !password) {
             res.status(400).json({
-                message: "Nom, email et mot de passe sont requis"
+                error: "Nom, email et mot de passe sont requis"
             });
             return;
         }
@@ -81,18 +93,18 @@ export const registerController: RequestHandler = async (req, res, next) => {
         const existingUser = await usersUseCase.getByEmail(email);
         if (existingUser) {
             res.status(409).json({
-                message: "Un utilisateur existe déjà"
+                error: "Un utilisateur existe déjà"
             });
             return;
         }
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
-        
+
         // Génération du token de vérification
         const verificationToken = crypto.randomBytes(32).toString('hex');
         const tokenExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 heures
-        
+
         const newUser = await usersUseCase.save({
             _id: new Types.ObjectId(),
             name,
@@ -135,40 +147,40 @@ export const logoutController: RequestHandler = (req, res, next) => {
 export const verifyEmailController: RequestHandler = async (req, res, next) => {
     try {
         const { token } = req.query;
-        
+
         if (!token) {
-            res.status(400).json({ 
+            res.status(400).json({
                 success: false,
-                error: "Le lien de vérification est requis" 
+                error: "Le lien de vérification est requis"
             });
             return;
         }
-        
+
         const user = await usersUseCase.getByVerificationToken(token as string);
-        
+
         if (!user) {
-            res.status(400).json({ 
+            res.status(400).json({
                 success: false,
-                error: "Lien de vérification invalide ou expiré" 
+                error: "Lien de vérification invalide ou expiré"
             });
             return;
         }
-        
+
         if (user.verification_token_expires < new Date()) {
-            res.status(400).json({ 
+            res.status(400).json({
                 success: false,
-                error: "Le lien de vérification a expiré" 
+                error: "Le lien de vérification a expiré"
             });
             return;
         }
-        
+
         // Mise à jour de l'utilisateur
         user.email_verified = true;
         user.verification_token = "";
         user.verification_token_expires = new Date();
         await usersUseCase.update(user);
-        
-        res.status(200).json({ 
+
+        res.status(200).json({
             success: true,
             message: "Email vérifié avec succès",
             user: {
@@ -176,7 +188,7 @@ export const verifyEmailController: RequestHandler = async (req, res, next) => {
                 email: user.email
             }
         });
-        
+
     } catch (error) {
         logger.error('Email verification error:', error);
         next(error);
@@ -190,35 +202,35 @@ export const verifyEmailController: RequestHandler = async (req, res, next) => {
 export const resendVerificationEmailController: RequestHandler = async (req, res, next) => {
     try {
         const { email } = req.query;
-        
+
         if (!email) {
             res.status(400).json({ error: "L'adresse email est requise" });
             return;
         }
-        
+
         // Récupérer l'utilisateur par email
         const user = await usersUseCase.getByEmail(email as string);
-        
+
         if (!user || user.email_verified) {
             res.status(200).json({ message: `Si un compte est associé à ${email}, un nouveau lien de vérification a été envoyé` });
             return;
         }
-        
+
         // Générer un nouveau token de vérification
         const verificationToken = crypto.randomBytes(32).toString('hex');
         const tokenExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 heures
-        
+
         // Mettre à jour le token de vérification
         user.verification_token = verificationToken;
         user.verification_token_expires = tokenExpires;
         await usersUseCase.update(user);
-        
+
         // Envoyer l'email de vérification
         await emailService.sendVerificationEmail(user.email, verificationToken);
         logger.info(`Email de vérification renvoyé à: ${user.email}`);
-        
+
         res.status(200).json({ message: `Si un compte est associé à ${email}, un nouveau lien de vérification a été envoyé` });
-        
+
     } catch (error) {
         logger.error('Erreur lors du renvoi de l\'email de vérification:', error);
         next(error);
